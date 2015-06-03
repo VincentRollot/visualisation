@@ -37,9 +37,6 @@
         <div class="row" id="planning">
           <div id='calendar'></div>
         </div>
-        <div class="row" id="switch">
-          switch
-        </div>
       </div>
       <div  class="col-md-3">
         <div class="row" id="details">

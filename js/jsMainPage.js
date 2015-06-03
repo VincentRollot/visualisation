@@ -5,13 +5,14 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     $("#legende").modal('show');
   }
 
-  $scope.salle = 1;
+  $scope.salle = null;
   $scope.json = null;
 
 
   $http.get('/visualisation/content.php').
     success(function(data, status, headers, config) {
       $scope.json = data;
+      $scope.salle = 1;
       displayPlanning();
     }).
   error(function(data, status, headers, config) {
@@ -39,44 +40,11 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     }
     else{
 
-      if($scope.json[count].classroom_id == '1'){
+      if($scope.json[count].classroom_id == $scope.salle){
 
-        id_class.push($scope.json[count].class_id);
-        
-        if($scope.json[count].class_dayofweek == "0"){
-          start_time.push('2015-06-07T'+$scope.json[count].class_starttime+':00');
-          duration.push('2015-06-07T'+$scope.json[count].class_duration+':00');
-        }
-
-        if($scope.json[count].class_dayofweek == "1"){
-          start_time.push('2015-06-01T'+$scope.json[count].class_starttime+':00');
-          duration.push('2015-06-01T'+$scope.json[count].class_duration+':00');
-        }
-
-        if($scope.json[count].class_dayofweek == "2"){
-          start_time.push('2015-06-02T'+$scope.json[count].class_starttime+':00');
-          duration.push('2015-06-02T'+$scope.json[count].class_duration+':00');
-        }
-
-        if($scope.json[count].class_dayofweek == "3"){
-          start_time.push('2015-06-03T'+$scope.json[count].class_starttime+':00');
-          duration.push('2015-06-03T'+$scope.json[count].class_duration+':00');
-        }
-
-        if($scope.json[count].class_dayofweek == "4"){
-          start_time.push('2015-06-04T'+$scope.json[count].class_starttime+':00');
-          duration.push('2015-06-04T'+$scope.json[count].class_duration+':00');
-        }
-
-        if($scope.json[count].class_dayofweek == "5"){
-          start_time.push('2015-06-05T'+$scope.json[count].class_starttime+':00');
-          duration.push('2015-06-05T'+$scope.json[count].class_duration+':00');
-        }
-
-        if($scope.json[count].class_dayofweek == "6"){
-          start_time.push('2015-06-06T'+$scope.json[count].class_starttime+':00');
-          duration.push('2015-06-06T'+$scope.json[count].class_duration+':00');
-        }
+        id_class.push("Cours n°"+$scope.json[count].class_id);
+        start_time.push($scope.json[count].class_date+'T'+$scope.json[count].class_starttime+':00');
+        duration.push('2015-06-07T'+$scope.json[count].class_duration+':00');
       }
 
         compt = compt + 1;
@@ -100,21 +68,24 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     var planning = json;
 
   $('#calendar').fullCalendar({
+    header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: ''
+      },
     lang : 'fr',
     minTime : "07:30",
     maxTime : "22:30",
     columnFormat : 'dddd',
-    header: false,
     allDaySlot : false,
     defaultView : 'agendaWeek',
     handleWindowResize : true,
     slotDuration : '00:30:00',
-    aspectRatio: 1.5,
+    aspectRatio: 1.62,
     defaultDate: '2015-06-01',
     editable: true,
     eventLimit: true, // allow "more" link when too many events
     events: planning
   });
   }
-
 });
