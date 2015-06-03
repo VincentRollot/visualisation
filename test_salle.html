@@ -1,14 +1,13 @@
-<html ng-app="myApp">
+<html>
 	<head>
-		
+	
 		<script src="js/angular.min.js" type="text/JavaScript"></script>
 		<script src="js/SalleCtrl.js" type="text/JavaScript"></script>
-		
 	
 	</head>
 	<body ng-controller="SalleCtrl">
 		<div ng-repeat="salle in salles">
-			<p>{{salle.salle_nom}}</p>
+			{{salle.salle_nom}}		
 		</div>	
 	</body>
 
