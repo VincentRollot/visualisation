@@ -1,0 +1,363 @@
+{
+    "1": {
+        "class_id": "1",
+        "class_dayofweek": "0",
+        "class_starttime": "12:30",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "1",
+        "teacher_list": [
+            "14", "7"
+        ],
+        "host_list": [
+            "27"
+        ]
+    },
+    "2": {
+        "class_id": "2",
+        "class_dayofweek": "2",
+        "class_starttime": "14:00",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "20",
+        "classroom_id": "1",
+        "teacher_list": [
+            "14"
+        ],
+        "host_list": [
+            "37"
+        ]
+    },
+    "4": {
+        "class_id": "4",
+        "class_dayofweek": "2",
+        "class_starttime": "17:00",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "1",
+        "teacher_list": [
+            "14"
+        ],
+        "host_list": [
+            "27", "46"
+        ]
+    },
+    "5": {
+        "class_id": "5",
+        "class_dayofweek": "5",
+        "class_starttime": "10:00",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "1",
+        "teacher_list": [
+            "12"
+        ],
+        "host_list": [
+            "27", "46"
+        ]
+    },
+    "6": {
+        "class_id": "6",
+        "class_dayofweek": "5",
+        "class_starttime": "16:00",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "45",
+        "classroom_id": "1",
+        "teacher_list": [
+            "7"
+        ],
+        "host_list": [
+            "30", "28"
+        ]
+    },
+    "7": {
+        "class_id": "7",
+        "class_dayofweek": "5",
+        "class_starttime": "17:15",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "95",
+        "classroom_id": "1",
+        "teacher_list": [
+            "8"
+        ],
+        "host_list": [
+            "30", "28"
+        ]
+    },
+    "8": {
+        "class_id": "8",
+        "class_dayofweek": "0",
+        "class_starttime": "12:30",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "3",
+        "teacher_list": [
+            "12"
+        ],
+        "host_list": [
+            "37", "45"
+        ]
+    },
+    "8": {
+        "class_id": "8",
+        "class_dayofweek": "0",
+        "class_starttime": "12:30",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "3",
+        "teacher_list": [
+            "12"
+        ],
+        "host_list": [
+            "37", "45"
+        ]
+    },
+    "9": {
+        "class_id": "9",
+        "class_dayofweek": "1",
+        "class_starttime": "16:45",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "20",
+        "classroom_id": "3",
+        "teacher_list": [
+            
+        ],
+        "host_list": [
+            "31"
+        ]
+    },
+    "10": {
+        "class_id": "10",
+        "class_dayofweek": "2",
+        "class_starttime": "13:30",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "3",
+        "teacher_list": [
+            "12", "8"
+        ],
+        "host_list": [
+            "45"
+        ]
+    },
+    "11": {
+        "class_id": "11",
+        "class_dayofweek": "5",
+        "class_starttime": "09:00",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "3",
+        "teacher_list": [
+            "12"
+        ],
+        "host_list": [
+            "31", "45"
+        ]
+    },
+    "12": {
+        "class_id": "12",
+        "class_dayofweek": "5",
+        "class_starttime": "10:00",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "95",
+        "classroom_id": "3",
+        "teacher_list": [
+            "8"
+        ],
+        "host_list": [
+            "31", "37"
+        ]
+    },
+    "13": {
+        "class_id": "13",
+        "class_dayofweek": "2",
+        "class_starttime": "10:00",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "67",
+        "teacher_list": [
+            "15"
+        ],
+        "host_list": [
+            "49"
+        ]
+    },
+    "14": {
+        "class_id": "14",
+        "class_dayofweek": "2",
+        "class_starttime": "12:15",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "67",
+        "teacher_list": [
+            "17"
+        ],
+        "host_list": [
+            "47"
+        ]
+    },
+    "15": {
+        "class_id": "15",
+        "class_dayofweek": "2",
+        "class_starttime": "15:45",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "20",
+        "classroom_id": "67",
+        "teacher_list": [
+            "15"
+        ],
+        "host_list": [
+            "53"
+        ]
+    },
+    "16": {
+        "class_id": "16",
+        "class_dayofweek": "2",
+        "class_starttime": "17:00",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "45",
+        "classroom_id": "67",
+        "teacher_list": [
+            "10"
+        ],
+        "host_list": [
+            "49", "53"
+        ]
+    },
+    "17": {
+        "class_id": "17",
+        "class_dayofweek": "5",
+        "class_starttime": "10:00",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "67",
+        "teacher_list": [
+            "15"
+        ],
+        "host_list": [
+            "47", "56"
+        ]
+    },
+    "18": {
+        "class_id": "18",
+        "class_dayofweek": "5",
+        "class_starttime": "12:15",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "67",
+        "teacher_list": [
+            "17"
+        ],
+        "host_list": [
+            "10", "57"
+        ]
+    },
+    "19": {
+        "class_id": "19",
+        "class_dayofweek": "6",
+        "class_starttime": "12:30",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "49",
+        "classroom_id": "67",
+        "teacher_list": [
+            "17", "18"
+        ],
+        "host_list": [
+            "56", "57"
+        ]
+    },
+    "20": {
+        "class_id": "20",
+        "class_dayofweek": "2",
+        "class_starttime": "16:30",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "60",
+        "classroom_id": "516",
+        "teacher_list": [
+            "19"
+        ],
+        "host_list": [
+            "64", "63"
+        ]
+    },
+    "21": {
+        "class_id": "21",
+        "class_dayofweek": "2",
+        "class_starttime": "17:30",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "96",
+        "classroom_id": "516",
+        "teacher_list": [
+            "19"
+        ],
+        "host_list": [
+            "64", "71"
+        ]
+    },
+    "22": {
+        "class_id": "22",
+        "class_dayofweek": "4",
+        "class_starttime": "17:30",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "30",
+        "classroom_id": "516",
+        "teacher_list": [
+            "20", "24"
+        ],
+        "host_list": [
+            "63"
+        ]
+    },
+    "23": {
+        "class_id": "23",
+        "class_dayofweek": "5",
+        "class_starttime": "11:00",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "95",
+        "classroom_id": "516",
+        "teacher_list": [
+            
+        ],
+        "host_list": [
+            "63"
+        ]
+    },
+    "24": {
+        "class_id": "24",
+        "class_dayofweek": "5",
+        "class_starttime": "12:15",
+        "class_duration": 60,
+        "class_capacity": "45",
+        "class_level": "60",
+        "classroom_id": "516",
+        "teacher_list": [
+            "20"
+        ],
+        "host_list": [
+            "63"
+        ]
+    }
+
+}
