@@ -5,16 +5,22 @@
 	//Sélectionner la table SALLE dans la BDD
 		$sql_info = "SELECT * FROM salle";
 		$donnees = mysqli_query($bdd, $sql_info) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
-		//echo mysqli_num_rows($donnees);
+		//printf ("Select a retourné un fichier avec %d lignes.<br/>", mysqli_num_rows($donnees));
 		
-		$salle_info = array();
+		$tab_salle = array();
 		
 	//On range les données d'une salle dans un tableau
-		while($d=mysqli_fetch_object($donnees)) {
-			$salle_info[] = $d;
-		}
+		while($ligne = mysqli_fetch_object($donnees)){
+			$tab_salle[] = $ligne;
+			
+		}		
+
+		$encode_salle = json_encode($tab_salle);
+		echo $encode_salle;
 		
-		echo json_encode($salle_info);
+		
+		//var_dump(json_encode($tab_salle));
+		
 	
 
 	//Fermeture de la connexion à la BDD
