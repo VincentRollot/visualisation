@@ -18,9 +18,9 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       $scope.json = null;
 
  
-  $http.get('/visualisation/content.php').
+  $http.get('/GitHub/visualisation/content.php').
     success(function(data, status, headers, config) {
-        $http.get('/visualisation/recuperer_id_salle.php?salle=' + salle_selected).
+        $http.get('/GitHub/visualisation/recuperer_id_salle.php?salle=' + salle_selected).
           success(function(data1, status, headers, config) {
 
             $scope.json = data;
