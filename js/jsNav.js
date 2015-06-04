@@ -26,18 +26,6 @@ $(function () {
 
     "plugins" : [ "search" , "sort" , "types"]
     })
-    
-    .on('changed.jstree', function (e, data) {
-      if(data && data.selected && data.selected.length) {
-      var i, j, r = [];
-      var salle_selected;
-      for(i = 0, j = data.selected.length; i < j; i++) {
-        r.push(data.instance.get_node(data.selected[i]).text);
-        salle_selected = data.instance.get_node(data.selected[i]).text;
-      }
-      $('#details').html('Informations de la salle : <br/>' + r.join(', '));
-      }
-    });
 
   var to = false;
   $('#research').keyup(function () {

@@ -13,17 +13,19 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         r.push(data.instance.get_node(data.selected[i]).text);
         salle_selected = data.instance.get_node(data.selected[i]).text;
       }
+      $('#details').html('Informations de la salle : <br/>' + r.join(', '));
       $scope.salle = null;
-  $scope.json = null;
+      $scope.json = null;
 
  
   $http.get('/visualisation/content.php').
     success(function(data, status, headers, config) {
-        $http.get('/visualisation/recuperer_id_salle.php').
+        $http.get('/visualisation/recuperer_id_salle.php?salle=' + salle_selected).
           success(function(data1, status, headers, config) {
 
             $scope.json = data;
             $scope.salle = data1;
+            console.log($scope.salle);
             displayPlanning();
           }).
           error(function(data1, status, headers, config) {
@@ -126,7 +128,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     defaultView : 'agendaWeek',
     handleWindowResize : true,
     slotDuration : '00:30:00',
-    aspectRatio: 1.65,
+    aspectRatio: 1.1,
     defaultDate: '2015-06-01',
     editable: true,
     eventLimit: true,
