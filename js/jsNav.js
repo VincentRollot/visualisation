@@ -35,7 +35,7 @@ $(function () {
         r.push(data.instance.get_node(data.selected[i]).text);
         salle_selected = data.instance.get_node(data.selected[i]).text;
       }
-      $('#details').html('Information de la salle: ' + r.join(', '));
+      $('#details').html('Informations de la salle : <br/>' + r.join(', '));
       }
     });
 

@@ -102,7 +102,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     defaultView : 'agendaWeek',
     handleWindowResize : true,
     slotDuration : '00:30:00',
-    aspectRatio: 1.62,
+    aspectRatio: 1.65,
     defaultDate: '2015-06-01',
     editable: true,
     eventLimit: true,
