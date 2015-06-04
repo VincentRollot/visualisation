@@ -5,19 +5,33 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     $("#legende").modal('show');
   }
   
-  $scope.salle = null;
+  $('#jstree').on('changed.jstree', function (e, data) {
+      if(data && data.selected && data.selected.length) {
+      var i, j, r = [];
+      var salle_selected;
+      for(i = 0, j = data.selected.length; i < j; i++) {
+        r.push(data.instance.get_node(data.selected[i]).text);
+        salle_selected = data.instance.get_node(data.selected[i]).text;
+      }
+      $scope.salle = null;
   $scope.json = null;
 
-
+ 
   $http.get('/visualisation/content.php').
     success(function(data, status, headers, config) {
+        $http.get('/visualisation/recuperer_id_salle.php').
+          success(function(data1, status, headers, config) {
 
-        $scope.json = data;
-        $scope.salle = 1;
-        displayPlanning();
-    }).
-  error(function(data, status, headers, config) {
-    console.log('ca marche pas');
+            $scope.json = data;
+            $scope.salle = data1;
+            displayPlanning();
+          }).
+          error(function(data1, status, headers, config) {
+            console.log('ca marche pas');
+          });
+        }).
+        error(function(data, status, headers, config) {
+          console.log('ca marche pas');
   });
 
 
@@ -114,4 +128,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     //http://fullcalendar.io/docs/event_data/Event_Object/#color-options  Pour la couleur individuelle des éléments
   });
   }
+      }
+  });
+
 });
