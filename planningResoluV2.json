@@ -1,5 +1,5 @@
 {
-    "1": {
+    {
         "class_id": "1",
         "class_date": "2015-03-03",
         "class_dayofweek": "0",
@@ -7,6 +7,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			2,
+			2
+		],
         "classroom_id": "1",
         "teacher_list": [
             "14", "12"
@@ -15,7 +19,7 @@
             "27", "28"
         ]
     },
-    "2": {
+    {
         "class_id": "2",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -23,6 +27,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "20",
+		"nb_teacher": [
+			1,
+			1
+		],
         "classroom_id": "1",
         "teacher_list": [
             "14"
@@ -31,7 +39,7 @@
             "37"
         ]
     },
-    "3": {
+    {
         "class_id": "3",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -39,6 +47,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			2,
+			2
+		],
         "classroom_id": "1",
         "teacher_list": [
             "14"
@@ -47,7 +59,7 @@
             "27", "46"
         ]
     },
-    "4": {
+    {
         "class_id": "4",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -55,6 +67,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "1",
         "teacher_list": [
             "12"
@@ -63,7 +79,7 @@
             "27", "46"
         ]
     },
-    "5": {
+    {
         "class_id": "5",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -71,6 +87,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "45",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "1",
         "teacher_list": [
             "7"
@@ -79,7 +99,7 @@
             "30", "28"
         ]
     },
-    "6": {
+    {
         "class_id": "6",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -87,6 +107,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "95",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "1",
         "teacher_list": [
             "8"
@@ -95,7 +119,7 @@
             "30", "28"
         ]
     },
-    "7": {
+    {
         "class_id": "7",
         "class_date": "2015-03-10",
         "class_dayofweek": "0",
@@ -103,6 +127,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			2,
+			2
+		],
         "classroom_id": "1",
         "teacher_list": [
             "14", "7"
@@ -111,7 +139,7 @@
             "27", "28"
         ]
     },
-    "8": {
+    {
         "class_id": "8",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -119,6 +147,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "20",
+		"nb_teacher": [
+			1,
+			1
+		],
         "classroom_id": "1",
         "teacher_list": [
             "18"
@@ -127,7 +159,7 @@
             "37"
         ]
     },
-    "9": {
+    {
         "class_id": "9",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -135,6 +167,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			2,
+			2
+		],
         "classroom_id": "1",
         "teacher_list": [
             "14"
@@ -143,7 +179,7 @@
             "27", "46"
         ]
     },
-    "10": {
+    {
         "class_id": "10",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -151,6 +187,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "1",
         "teacher_list": [
             "12"
@@ -159,7 +199,7 @@
             "27", "46"
         ]
     },
-    "11": {
+    {
         "class_id": "11",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -167,6 +207,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "45",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "1",
         "teacher_list": [
             "7"
@@ -175,7 +219,7 @@
             "30", "28"
         ]
     },
-    "12": {
+    {
         "class_id": "12",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -183,6 +227,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "95",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "1",
         "teacher_list": [
             "8"
@@ -191,7 +239,7 @@
             "30", "28"
         ]
     },
-    "13": {
+    {
         "class_id": "13",
         "class_date": "2015-03-03",
         "class_dayofweek": "0",
@@ -199,6 +247,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "3",
         "teacher_list": [
             "12"
@@ -207,7 +259,7 @@
             "37", "45"
         ]
     },
-    "14": {
+    {
         "class_id": "14",
         "class_date": "2015-03-04",
         "class_dayofweek": "1",
@@ -215,6 +267,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "20",
+		"nb_teacher": [
+			1,
+			1
+		],
         "classroom_id": "3",
         "teacher_list": [
             
@@ -223,7 +279,7 @@
             "31"
         ]
     },
-    "15": {
+    {
         "class_id": "15",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -231,6 +287,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			2,
+			2
+		],
         "classroom_id": "3",
         "teacher_list": [
             "12", "8"
@@ -239,7 +299,7 @@
             "45", "37"
         ]
     },
-    "16": {
+    {
         "class_id": "16",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -247,6 +307,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "3",
         "teacher_list": [
             "12"
@@ -255,7 +319,7 @@
             "31", "45"
         ]
     },
-    "17": {
+    {
         "class_id": "17",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -263,6 +327,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "95",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "3",
         "teacher_list": [
             "8"
@@ -271,7 +339,7 @@
             "31", "37"
         ]
     },
-    "18": {
+    {
         "class_id": "18",
         "class_date": "2015-03-10",
         "class_dayofweek": "0",
@@ -279,6 +347,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "3",
         "teacher_list": [
             "7"
@@ -287,7 +359,7 @@
             "37", "45"
         ]
     },
-    "19": {
+    {
         "class_id": "19",
         "class_date": "2015-03-11",
         "class_dayofweek": "1",
@@ -295,6 +367,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "20",
+		"nb_teacher": [
+			1,
+			1
+		],
         "classroom_id": "3",
         "teacher_list": [
             "8"
@@ -303,7 +379,7 @@
             "31"
         ]
     },
-    "20": {
+    {
         "class_id": "20",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -311,6 +387,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			2,
+			2
+		],
         "classroom_id": "3",
         "teacher_list": [
             "12", "8"
@@ -319,7 +399,7 @@
             "45", "37"
         ]
     },
-    "21": {
+    {
         "class_id": "21",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -327,6 +407,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "3",
         "teacher_list": [
             "12"
@@ -335,7 +419,7 @@
             "31", "45"
         ]
     },
-    "22": {
+    {
         "class_id": "22",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -343,6 +427,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "95",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "3",
         "teacher_list": [
             "8"
@@ -351,7 +439,7 @@
             "31", "37"
         ]
     },
-    "23": {
+    {
         "class_id": "23",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -359,6 +447,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			1
+		],
         "classroom_id": "67",
         "teacher_list": [
             "15"
@@ -367,7 +459,7 @@
             "49"
         ]
     },
-    "24": {
+    {
         "class_id": "24",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -375,6 +467,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			1
+		],
         "classroom_id": "67",
         "teacher_list": [
             "17"
@@ -383,7 +479,7 @@
             "47"
         ]
     },
-    "25": {
+    {
         "class_id": "25",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -391,6 +487,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "20",
+		"nb_teacher": [
+			1,
+			1
+		],
         "classroom_id": "67",
         "teacher_list": [
             "15"
@@ -399,7 +499,7 @@
             "53"
         ]
     },
-    "26": {
+    {
         "class_id": "26",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -407,6 +507,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "40",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "67",
         "teacher_list": [
             "10"
@@ -415,7 +519,7 @@
             "49", "53"
         ]
     },
-    "27": {
+    {
         "class_id": "27",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -423,6 +527,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "67",
         "teacher_list": [
             "15"
@@ -431,7 +539,7 @@
             "47", "56"
         ]
     },
-    "28": {
+    {
         "class_id": "28",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -439,6 +547,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "67",
         "teacher_list": [
             "17"
@@ -447,7 +559,7 @@
             "10", "57"
         ]
     },
-    "29": {
+    {
         "class_id": "29",
         "class_date": "2015-03-09",
         "class_dayofweek": "6",
@@ -455,6 +567,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "49",
+		"nb_teacher": [
+			2,
+			2
+		],
         "classroom_id": "67",
         "teacher_list": [
             "17", "18"
@@ -463,7 +579,7 @@
             "56", "57"
         ]
     },
-    "30": {
+    {
         "class_id": "30",
         "class_date": "2015-03-10",
         "class_dayofweek": "0",
@@ -471,6 +587,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			1
+		],
         "classroom_id": "67",
         "teacher_list": [
             "15"
@@ -479,7 +599,7 @@
             "17"
         ]
     },
-    "31": {
+    {
         "class_id": "31",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -487,6 +607,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "49",
+		"nb_teacher": [
+			2,
+			2
+		],
         "classroom_id": "67",
         "teacher_list": [
             "17", "18"
@@ -495,7 +619,7 @@
             "56", "57"
         ]
     },
-    "32": {
+    {
         "class_id": "32",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -503,6 +627,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "40",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "67",
         "teacher_list": [
             "10"
@@ -511,7 +639,7 @@
             "49", "53"
         ]
     },
-    "33": {
+    {
         "class_id": "33",
         "class_date": "2015-03-14",
         "class_dayofweek": "4",
@@ -519,6 +647,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "67",
         "teacher_list": [
             "17"
@@ -527,7 +659,7 @@
             "10", "57"
         ]
     },
-    "34": {
+    {
         "class_id": "34",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -535,6 +667,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "60",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "516",
         "teacher_list": [
             "19"
@@ -543,7 +679,7 @@
             "64", "63"
         ]
     },
-    "35": {
+    {
         "class_id": "35",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -551,6 +687,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "96",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "516",
         "teacher_list": [
             "19"
@@ -559,7 +699,7 @@
             "64", "71"
         ]
     },
-    "36": {
+    {
         "class_id": "36",
         "class_date": "2015-03-07",
         "class_dayofweek": "4",
@@ -567,6 +707,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			2,
+			1
+		],
         "classroom_id": "516",
         "teacher_list": [
             "20", "24"
@@ -575,7 +719,7 @@
             "63"
         ]
     },
-    "37": {
+    {
         "class_id": "37",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -583,6 +727,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "95",
+		"nb_teacher": [
+			1,
+			1
+		],
         "classroom_id": "516",
         "teacher_list": [
             
@@ -591,7 +739,7 @@
             "63"
         ]
     },
-    "38": {
+    {
         "class_id": "38",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -599,6 +747,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			1,
+			1
+		],
         "classroom_id": "516",
         "teacher_list": [
             "20"
@@ -607,7 +759,7 @@
             "63"
         ]
     },
-    "39": {
+    {
         "class_id": "39",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -615,6 +767,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "60",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "516",
         "teacher_list": [
             "19"
@@ -623,7 +779,7 @@
             "64", "63"
         ]
     },
-    "40": {
+    {
         "class_id": "40",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -631,15 +787,19 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "96",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "516",
         "teacher_list": [
             "19"
         ],
         "host_list": [
-            "64", "71"
+            "64", "20"
         ]
     },
-    "41": {
+    {
         "class_id": "41",
         "class_date": "2015-03-14",
         "class_dayofweek": "4",
@@ -647,6 +807,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			2,
+			1
+		],
         "classroom_id": "516",
         "teacher_list": [
             "20", "24"
@@ -655,14 +819,18 @@
             "63"
         ]
     },
-    "42": {
+    {
         "class_id": "42",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
-        "class_starttime": "09:45",
+        "class_starttime": "10:00",
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "60",
+		"nb_teacher": [
+			1,
+			2
+		],
         "classroom_id": "516",
         "teacher_list": [
             "19"
@@ -671,7 +839,7 @@
             "63", "64"
         ]
     },
-    "43": {
+    {
         "class_id": "43",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -679,6 +847,10 @@
         "class_duration": 60,
         "class_capacity": "45",
         "class_level": "30",
+		"nb_teacher": [
+			2,
+			1
+		],
         "classroom_id": "516",
         "teacher_list": [
             "71"
