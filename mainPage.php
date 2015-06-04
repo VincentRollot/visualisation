@@ -19,11 +19,7 @@
 </head>
 
   <body ng-controller="mainPageController">
-  <?php
-    $url = "planningResolu.json";
-    $json_file = file_get_contents($url);
-    $json_file;
-  ?>
+
       <ng-include src="'nav.php'"></ng-include> 
       <div  class="col-md-7">
         <div class="row" id="search">

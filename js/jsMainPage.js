@@ -29,7 +29,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   var count_json = 0;
   var id_class = new Array();
   var start_time  = new Array();
-  var duration  = new Array();
+  var end_time  = new Array();
   var json = new Array();
   var tmp = new Array();
 
@@ -44,7 +44,25 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
 
         id_class.push("Cours n°"+$scope.json[count].class_id);
         start_time.push($scope.json[count].class_date+'T'+$scope.json[count].class_starttime+':00');
-        duration.push('2015-06-07T'+$scope.json[count].class_duration+':00');
+
+
+        var duration = $scope.json[count].class_duration;
+        var start = $scope.json[count].class_starttime;
+        minute = start.substr(3,5);
+        hour = start.substr(0,2);
+        minute = parseInt(minute);
+        hour = parseInt(hour);
+        duration = parseInt(duration);
+
+        var total_minutes = (60*hour) + minute + duration;
+        var hour_end = Math.floor(total_minutes / 60);
+        var minute_end = total_minutes % 60;
+
+        if (minute_end == 0) {
+          minute_end = minute_end+'0';
+        }
+
+        end_time.push($scope.json[count].class_date+'T'+hour_end+':'+minute_end+':00');
       }
 
         compt = compt + 1;
@@ -56,16 +74,18 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
 
       var i = 0;
       var obj = {};
-      tmp = ['title', 'start'];
+      tmp = ['title', 'start', 'end'];
 
       obj[tmp[0]] = id_class[count_json];
       obj[tmp[1]] = start_time[count_json];
+      obj[tmp[2]] = end_time[count_json];
 
       json.push(obj);
       count_json = count_json + 1;
     }
 
     var planning = json;
+    console.log(planning);
 
   $('#calendar').fullCalendar({
     header: {
@@ -84,8 +104,13 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     aspectRatio: 1.62,
     defaultDate: '2015-06-01',
     editable: true,
-    eventLimit: true, // allow "more" link when too many events
-    events: planning
+    eventLimit: true,
+    eventStartEditable : false,
+    eventDurationEditable : false,
+    events: planning,
+    eventBackgroundColor : "rgb(251,210,20)",
+    eventTextColor : "rgb(17,81,160)"
+    //http://fullcalendar.io/docs/event_data/Event_Object/#color-options  Pour la couleur individuelle des éléments
   });
   }
 });
