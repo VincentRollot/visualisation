@@ -1,5 +1,7 @@
+    
 {
-    {
+    "1":{
+    
         "class_id": "1",
         "class_date": "2015-03-03",
         "class_dayofweek": "0",
@@ -19,7 +21,7 @@
             "27", "28"
         ]
     },
-    {
+    "2":{
         "class_id": "2",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -39,7 +41,7 @@
             "37"
         ]
     },
-    {
+    "3":{
         "class_id": "3",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -59,7 +61,7 @@
             "27", "46"
         ]
     },
-    {
+    "4":{
         "class_id": "4",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -79,7 +81,7 @@
             "27", "46"
         ]
     },
-    {
+    "5":{
         "class_id": "5",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -99,7 +101,7 @@
             "30", "28"
         ]
     },
-    {
+    "6":{
         "class_id": "6",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -119,7 +121,7 @@
             "30", "28"
         ]
     },
-    {
+    "7":{
         "class_id": "7",
         "class_date": "2015-03-10",
         "class_dayofweek": "0",
@@ -139,7 +141,7 @@
             "27", "28"
         ]
     },
-    {
+    "8":{
         "class_id": "8",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -159,7 +161,7 @@
             "37"
         ]
     },
-    {
+    "9":{
         "class_id": "9",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -179,7 +181,7 @@
             "27", "46"
         ]
     },
-    {
+    "10":{
         "class_id": "10",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -199,7 +201,7 @@
             "27", "46"
         ]
     },
-    {
+    "11":{
         "class_id": "11",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -219,7 +221,7 @@
             "30", "28"
         ]
     },
-    {
+    "12":{
         "class_id": "12",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -239,7 +241,7 @@
             "30", "28"
         ]
     },
-    {
+    "13":{
         "class_id": "13",
         "class_date": "2015-03-03",
         "class_dayofweek": "0",
@@ -259,7 +261,7 @@
             "37", "45"
         ]
     },
-    {
+    "14":{
         "class_id": "14",
         "class_date": "2015-03-04",
         "class_dayofweek": "1",
@@ -279,7 +281,7 @@
             "31"
         ]
     },
-    {
+    "15":{
         "class_id": "15",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -299,7 +301,7 @@
             "45", "37"
         ]
     },
-    {
+    "16":{
         "class_id": "16",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -319,7 +321,7 @@
             "31", "45"
         ]
     },
-    {
+    "17":{
         "class_id": "17",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -339,7 +341,7 @@
             "31", "37"
         ]
     },
-    {
+    "18":{
         "class_id": "18",
         "class_date": "2015-03-10",
         "class_dayofweek": "0",
@@ -359,7 +361,7 @@
             "37", "45"
         ]
     },
-    {
+    "19":{
         "class_id": "19",
         "class_date": "2015-03-11",
         "class_dayofweek": "1",
@@ -379,7 +381,7 @@
             "31"
         ]
     },
-    {
+    "20":{
         "class_id": "20",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -399,7 +401,7 @@
             "45", "37"
         ]
     },
-    {
+    "21":{
         "class_id": "21",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -419,7 +421,7 @@
             "31", "45"
         ]
     },
-    {
+    "22":{
         "class_id": "22",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -439,7 +441,7 @@
             "31", "37"
         ]
     },
-    {
+    "23":{
         "class_id": "23",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -459,7 +461,7 @@
             "49"
         ]
     },
-    {
+    "24":{
         "class_id": "24",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -479,7 +481,7 @@
             "47"
         ]
     },
-    {
+    "25":{
         "class_id": "25",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -499,7 +501,7 @@
             "53"
         ]
     },
-    {
+    "26":{
         "class_id": "26",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -519,7 +521,7 @@
             "49", "53"
         ]
     },
-    {
+    "27":{
         "class_id": "27",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -539,7 +541,7 @@
             "47", "56"
         ]
     },
-    {
+    "28":{
         "class_id": "28",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -559,7 +561,7 @@
             "10", "57"
         ]
     },
-    {
+    "29":{
         "class_id": "29",
         "class_date": "2015-03-09",
         "class_dayofweek": "6",
@@ -579,7 +581,7 @@
             "56", "57"
         ]
     },
-    {
+    "30":{
         "class_id": "30",
         "class_date": "2015-03-10",
         "class_dayofweek": "0",
@@ -599,7 +601,7 @@
             "17"
         ]
     },
-    {
+    "31":{
         "class_id": "31",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -619,7 +621,7 @@
             "56", "57"
         ]
     },
-    {
+    "32":{
         "class_id": "32",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -639,7 +641,7 @@
             "49", "53"
         ]
     },
-    {
+    "33":{
         "class_id": "33",
         "class_date": "2015-03-14",
         "class_dayofweek": "4",
@@ -659,7 +661,7 @@
             "10", "57"
         ]
     },
-    {
+    "34":{
         "class_id": "34",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -679,7 +681,7 @@
             "64", "63"
         ]
     },
-    {
+    "35":{
         "class_id": "35",
         "class_date": "2015-03-05",
         "class_dayofweek": "2",
@@ -699,7 +701,7 @@
             "64", "71"
         ]
     },
-    {
+    "36":{
         "class_id": "36",
         "class_date": "2015-03-07",
         "class_dayofweek": "4",
@@ -719,7 +721,7 @@
             "63"
         ]
     },
-    {
+    "37":{
         "class_id": "37",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -739,7 +741,7 @@
             "63"
         ]
     },
-    {
+    "38":{
         "class_id": "38",
         "class_date": "2015-03-08",
         "class_dayofweek": "5",
@@ -759,7 +761,7 @@
             "63"
         ]
     },
-    {
+    "39":{
         "class_id": "39",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -779,7 +781,7 @@
             "64", "63"
         ]
     },
-    {
+    "40":{
         "class_id": "40",
         "class_date": "2015-03-12",
         "class_dayofweek": "2",
@@ -799,7 +801,7 @@
             "64", "20"
         ]
     },
-    {
+    "41":{
         "class_id": "41",
         "class_date": "2015-03-14",
         "class_dayofweek": "4",
@@ -819,7 +821,7 @@
             "63"
         ]
     },
-    {
+    "42":{
         "class_id": "42",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
@@ -839,7 +841,7 @@
             "63", "64"
         ]
     },
-    {
+    "43":{
         "class_id": "43",
         "class_date": "2015-03-15",
         "class_dayofweek": "5",
