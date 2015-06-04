@@ -4,16 +4,24 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   $scope.showModal = function(){
     $("#legende").modal('show');
   }
-
+  
   $scope.salle = null;
   $scope.json = null;
 
 
-  $http.get('/visualisation/content.php').
+  $http.get('/GitHub/visualisation/content.php').
     success(function(data, status, headers, config) {
-      $scope.json = data;
-      $scope.salle = 1;
-      displayPlanning();
+      $http.get('/GitHub/visualisation/recuperer_id_salle.php').
+      success(function(data1, status, headers, config) {
+        
+        $scope.json = data;
+        $scope.salle = data1;
+        console.log(data1);
+        displayPlanning();
+        }).
+      error(function(data, status, headers, config) {
+      console.log('ca marche pas');
+      });
     }).
   error(function(data, status, headers, config) {
     console.log('ca marche pas');
