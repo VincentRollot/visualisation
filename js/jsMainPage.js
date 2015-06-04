@@ -17,9 +17,9 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   $scope.json = null;
 
  
-  $http.get('/visualisation/content.php').
+  $http.get('/GitHub/visualisation/content.php').
     success(function(data, status, headers, config) {
-        $http.get('/visualisation/recuperer_id_salle.php').
+        $http.get('/GitHub/visualisation/recuperer_id_salle.php').
           success(function(data1, status, headers, config) {
 
             $scope.json = data;
@@ -107,7 +107,17 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         left: 'prev,next today',
         center: 'title',
         right: ''
-      },
+      },/*
+      eventRender: function (event, element) {
+        element.attr('href', 'javascript:void(0);');
+        element.click(function() {
+            $("#startTime").html(moment(event.start).format('MMM Do h:mm A'));
+            $("#endTime").html(moment(event.end).format('MMM Do h:mm A'));
+            $("#eventInfo").html(event.description);
+            $("#eventLink").attr('href', event.url);
+            $("#eventContent").dialog({ modal: true, title: event.title, width:350});
+        });
+      },*/
     lang : 'fr',
     minTime : "07:30",
     maxTime : "22:30",
