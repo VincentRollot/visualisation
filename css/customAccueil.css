@@ -1,0 +1,12 @@
+/* accueil */
+.bordure{
+    border-color: rgb(13,81,160);
+}
+
+.no-bordure{
+    border: none;
+}
+
+.centrer-texte{
+	text-align: center;
+}

@@ -1,0 +1,68 @@
+#infos{
+	background-color: rgb(13,81,160);
+	color: white;
+	height: 5%;
+	text-align: center;
+}
+
+#nav{
+	height: 95%;
+	border-right: solid 1px rgb(13,81,160);
+}
+
+#search{
+	height: 7%;
+	border-bottom: solid 1px rgb(13,81,160);
+}
+
+
+#salles{
+	height: 7%;
+	border-bottom: solid 1px rgb(13,81,160);
+}
+
+#planning{
+	height: 71%;
+	border-bottom: solid 1px rgb(13,81,160);
+}
+
+#switch{
+	height: 10%;
+}
+
+#details{
+	height: 20%;
+	border-left: solid 1px rgb(13,81,160);
+	border-bottom: solid 1px rgb(13,81,160);
+}
+
+#indic{
+	height: 75%;
+	border-left: solid 1px rgb(13,81,160);
+}
+
+#logo{
+	height: 100%;
+	width: 100%;
+}
+
+#divLegende{
+	cursor: pointer;
+	color: rgb(251,188,30);
+	text-decoration: underline;
+}
+
+.titreDetail{
+	text-align: center;
+	font-size: 300%;
+}
+
+.sous-titreDetail{
+	text-decoration: underline;
+}
+
+.content{
+	padding: 15px;
+}
+
+
