@@ -3,11 +3,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gym Suédoise</title>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link rel="icon" type="image/gif" href="http://design.gymsuedoise.com/USER20150427/favicon.gif" /> <!-- favicon -->
   <link rel="stylesheet" type="text/css" href="libs/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="libs/jquery-ui.min.css" /> 
   <link rel="stylesheet" type="text/css" href="libs/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="css/customMainPage.css" />
+  <link rel="stylesheet" href="dist/themes/default/style.min.css" />
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
   <link href='libs/fullcalendar.css' rel='stylesheet' />
   <link href='libs/fullcalendar.print.css' rel='stylesheet' media='print' />
