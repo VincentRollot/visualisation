@@ -23,7 +23,7 @@
 			//Tant que l'objet avec un ID = cpt est vide, on incrémente le compteur
 			while (empty($parsed_json_salle->{$cpt}) == true)
 			{
-				echo "Aucune salle ne correspond à l'ID ".$cpt.'<br/>';
+				echo "Aucune salle ne correspond à l'ID {$cpt} ";
 				$cpt = $cpt +1;
 				
 			}
