@@ -13,7 +13,7 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 </head>
 
-  <body ng-controller="mainPageController">
+  <body ng-controller="coursDetailController">
     <div class="content">
       <button>Retour</button>
       <div class="titreDetail">Détails du cours</div>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-6">Zone :</div>
+        <div class="col-md-6">Zone : </div>
         <div class="col-md-6">Animateur :</div>
       </div>
 
@@ -53,7 +53,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-6">Intensité :</div>
+        <div class="col-md-6">Intensité : {{cours.cours_type}}</div>
         <div class="sous-titreDetail col-md-6">Rappel indicateur :</div>
       </div>
 
