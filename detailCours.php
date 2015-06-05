@@ -15,7 +15,7 @@
 
   <body ng-controller="coursDetailController">
     <div class="content">
-      <button>Retour</button>
+      <a href="javascript:history.back()" class="btn btn-default" role="button">Retour</a>
       <div class="titreDetail">Détails du cours</div>
       <br>
       <br>
