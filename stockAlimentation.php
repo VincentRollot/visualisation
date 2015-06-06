@@ -14,11 +14,17 @@
 		//On supprime les enregistrements de la table
 		mysqli_query($bdd, "DELETE FROM disponibilite") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 		mysqli_query($bdd, "DELETE FROM disponibilite_salle") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
+		mysqli_query($bdd, "DELETE FROM intervenant") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
+		mysqli_query($bdd, "DELETE FROM intensite_intervenant") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 		
 		//On remet la BDD à 0
 		$sql_zero = "ALTER TABLE disponibilite AUTO_INCREMENT=0";
 		mysqli_query($bdd, $sql_zero) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 		$sql_un = "ALTER TABLE disponibilite_salle AUTO_INCREMENT=0";
+		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+		$sql_un = "ALTER TABLE intervenant AUTO_INCREMENT=0";
+		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+		$sql_un = "ALTER TABLE intensite_intervenant AUTO_INCREMENT=0";
 		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 		
 		unset ($sql_zero,$sql_un);
@@ -68,7 +74,7 @@
 				//echo count($t_weeks);
 				//echo $t_weeks[0]->{'numberWeek'}."</br>";
 				//echo "</br></bt>staff_is_host".$t_staff_is_host."</br></bt>";
-				$sql = "INSERT INTO intervenant VALUES('',".$t_ID." ,'".$t_mail."' ,'".$t_name."','".$t_firstname."', ".$t_staff_is_teacher.", ".$t_staff_is_host." )";
+				$sql = "INSERT INTO intervenant VALUES(".$t_ID." ,'".$t_mail."' ,'".$t_name."','".$t_firstname."', ".$t_staff_is_teacher.", ".$t_staff_is_host." )";
 				
 				//echo $sql;
 				
@@ -121,7 +127,7 @@
 					
 					
 				}
-				
+				unset($sql, $insertion, $t_ID, $t_name, $t_firstname, $t_staff_is_host, $t_staff_is_teacher, $t_weeks, $t_ID, $t_intensity, $t_mail);
 				$cpt = $cpt +1;
 			
 			
