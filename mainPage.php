@@ -35,7 +35,7 @@
       </div>
       <div  class="col-md-3">
         <div class="row" id="details">
-          Veuillez séléctionner un lieu pour voir son détail (nom, adresse, ...)
+          Veuillez séléctionner un lieu pour voir le détail (nom, adresse, ...)
         </div>
         <div class="row" id="indic">
           indic

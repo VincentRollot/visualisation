@@ -32,53 +32,39 @@
 
       <div class="row">
         <div class="col-md-6">Ville :</div>
-        <div class="col-md-6">Hote 1 :</div>
       </div>
 
       <div class="row">
         <div class="col-md-6">Salle :</div>
-        <div class="col-md-6">Hote 2 :</div>
       </div>
       
       <div class="row">
-        <div class="col-md-6">Heure de début :</div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">Heure de fin :</div>        
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">Durée :</div>        
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">Intensité : {{cours.cours_type}}</div>
+        <div class="col-md-6">Heure de début :</div>        
         <div class="sous-titreDetail col-md-6">Rappel indicateur :</div>
       </div>
 
       <div class="row">
-        <div class="col-md-6">Abonnement :</div>
-        <div class="col-md-6">Nombre d'animateur :</div>  
+        <div class="col-md-6">Durée :</div>  
+        <div class="col-md-6">Nombre d'animateur :</div>       
       </div>
 
       <div class="row">
-        <div class="col-md-6">Animateur :</div>
-        <div class="col-md-6">Nombre d'animateur encore possible :</div>    
+        <div class="col-md-6">Intensité : {{cours.cours_type}}</div>
+        <div class="col-md-6">Nombre d'animateur encore possible :</div> 
       </div>
 
-      <div class="row">
-        <div class="col-md-6">Hote 1 :</div>
+      <div class="row">        
+        <div class="col-md-6">Capacité du cours :</div>
         <div class="col-md-6">Nombre d'hote :</div>   
       </div>
 
       <div class="row">
-        <div class="col-md-6">Hote 2 :</div>
+        <div class="col-md-6"></div>
         <div class="col-md-6">Nombre d'hote encore possible :</div>
       </div>
 
       <div class="row">
-        <div class="col-md-6">Capacité du cours :</div>
+        <div class="col-md-6"></div>
         <div class="col-md-6">Formation de l’animateur correspond à l’intensité :</div>
       </div> 
     </div> 

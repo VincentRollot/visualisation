@@ -41,8 +41,8 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     success(function(info, status, headers, config) {
 
       $scope.infos = info;
-      if($scope.infos != '<br/><br/>'){
-        $('#details').html('Lieu : <br/>' + info);
+      if($scope.infos != '<br/><br/> '){
+        $('#details').html(info);
       }
     }).
     error(function(info, status, headers, config) {
