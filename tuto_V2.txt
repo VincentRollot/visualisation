@@ -1,0 +1,58 @@
+TUTO DE L'AMBIANCE POUR LIER LE DOSSIER POUR LE GITHUB
+
+*********************************************************************************************
+
+1er étape : 
+
+Ouvrir la console choisie ( git bash etc)
+
+2ème étape : 
+
+Tu crées un dossier (peu importe le nom ) que tu places dans tes documents sans utiliser la console.
+
+3 ème étape : 
+
+Tu retournes sur la console et tu utilises la commande "cd" pour atteindre le dossier que tu as créé à la 2ème étape.
+
+Alors pour te balader dans les dossiers: 
+ -  "cd .." pour revenir au dossier précédent
+ -  "cd NomDuDossier" pour ouvrir le dossier
+
+Si tu souhaites savoir quels dossiers sont dans ton dossier :
+ - un peu "ls" des familles
+
+4 ème étape : 
+
+un fois que tu as atteint ton dossier tu peux taper la commande :
+-   "git clone https://github.com/VincentRollot/visualisation.git" magnifique ton dossier est lié au gtihub
+
+
+************************************************************************************************
+
+ls
+
+TUTO D'UTILISATION 
+
+
+************************************************************************************************
+
+Pour récupérer les informations, on effectue les fonctions suivantes : 
+-  "git fetch"
+-  "git pull"
+
+Magique !! Tout est dans ton dossier !!!!!
+
+Pour poster :
+-  ajouter ses modifications dans le dossier lié au github.
+
+Puis utiliser les fonctions suivantes: 
+-  "git add ." 
+-  "git commit -m "tumetscequetuaschangé"
+-  "git push origin master"
+
+Magique !!! tu as réussi à poster comme un patron !! 
+Well done !
+
+
+Et pour supprimer Vincent ? Alors c'est très simple il suffit d'utiliser la commande suivante :
+-  "git rm" 
