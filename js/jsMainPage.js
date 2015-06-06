@@ -13,9 +13,10 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         r.push(data.instance.get_node(data.selected[i]).text);
         salle_selected = data.instance.get_node(data.selected[i]).text;
       }
-      $('#details').html('Informations de la salle : <br/>' + r.join(', '));
+      $('#details').html('Lieu : <br/>' + r.join(', '));
       $scope.salle = null;
       $scope.json = null;
+      $scope.infos = null;
 
  
   $http.get('/visualisation/content.php'). //    /GitHub/visualisation/content.php
@@ -35,6 +36,19 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         error(function(data, status, headers, config) {
           console.log('ca marche pas');
   });
+
+  $http.get('/visualisation/recuperer_info_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+    success(function(info, status, headers, config) {
+
+      $scope.infos = info;
+      if($scope.infos != '<br/><br/>'){
+        $('#details').html('Lieu : <br/>' + info);
+      }
+    }).
+    error(function(info, status, headers, config) {
+      console.log('infos salle ca marche pas');
+  });
+        
 
 
 
@@ -110,9 +124,15 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         center: 'title',
         right: ''
       },
+
+      //eventMouseover: function(event, jsEvent, view) {        
+      //},
+
       eventRender: function (event, element) {
-        element.click(function() {
-            window.open("../detailCours.php","_self"); // ../visualisation/detailCours.php
+        element.attr('href', 'javascript:void(0);');
+        element.click(function() {   
+          window.open("../detailCours.php","_self"); // ../visualisation/detailCours.php
+          alert(event.title);
         });
       },
     lang : 'fr',

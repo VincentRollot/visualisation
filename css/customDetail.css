@@ -59,10 +59,16 @@
 
 .sous-titreDetail{
 	text-decoration: underline;
+	font-size: 150%;
+
 }
 
 .content{
 	padding: 15px;
+}
+
+.bordure{
+    border-color: rgb(13,81,160);
 }
 
 
