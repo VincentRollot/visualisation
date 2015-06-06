@@ -1,5 +1,5 @@
 <?php
-	echo "Ouverture de stock_BDD.php<br/>";
+	//echo "Ouverture de stock_BDD.php<br/>";
 	//Connexion à la BDD
 		require 'connexion.php';
 	
@@ -98,6 +98,13 @@
 						//echo $sql;
 						//echo "</br> Le nombre de disponibilite est ".count($t_weeks[$a]->{'availabilities'})."</br>";
 						$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+						$id_ajout=($bdd->insert_id);
+						for( $b=0; $b<count($t_weeks[$a]->{'places'});  $b++)
+						{
+							$sql = "INSERT INTO disponibilite_salle VALUES('',".$id_ajout." ,".$t_weeks[$a]->{'places'}[$b].")";
+							$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+						}
+						
 					}
 					//$sql = "INSERT INTO disponibilite VALUES('',".$t_ID." ,'".$weeks[a]->{'numberWeek'}." ,'".$weeks[a]->{'availability_date'}."','".$weeks[$a]->{'availability_dayofweek'}."', ".$weeks[$a]->{'availability_starttime'}.", '".$weeks[$a]->{'availability_duration'}."', '".$weeks[$a]->{'availability_duration'}.")";
 					
@@ -105,16 +112,12 @@
 					
 					//echo "</br></br>".count($t_weeks[$a]->{'places'})."</br></br>";
 					//echo ($bdd->insert_id);
-					$id_ajout=($bdd->insert_id);
+					
 					
 					
 					//$sql = "INSERT INTO disponibilite VALUES('',".$t_ID.")";
 					
-					for( $i=0; $i<count($t_weeks[$a]->{'places'});  $i++)
-					{
-						$sql = "INSERT INTO disponibilite_salle VALUES('',".$id_ajout." ,".$t_weeks[$a]->{'places'}[$i].")";
-						$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
-					}
+					
 					
 					
 				}
