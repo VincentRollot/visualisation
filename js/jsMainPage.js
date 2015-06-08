@@ -25,7 +25,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
           success(function(data1, status, headers, config) {
 
             $scope.json = data;
-            $scope.salle = 1;
+            $scope.salle = data1;
             console.log($scope.salle);
             displayPlanning();
           }).
