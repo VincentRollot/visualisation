@@ -9,16 +9,18 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       if(data && data.selected && data.selected.length) {
       var i, j, r = [];
       var salle_selected;
+      var parent_id;
       for(i = 0, j = data.selected.length; i < j; i++) {
         r.push(data.instance.get_node(data.selected[i]).text);
         salle_selected = data.instance.get_node(data.selected[i]).text;
+        parent_id = data.instance.get_node(data.selected[i]).parent;
+        //console.log(parent_id);
       }
       $('#details').html('Lieu : <br/>' + r.join(', '));
       $scope.salle = null;
       $scope.json = null;
       $scope.infos = null;
       $scope.nb = null;
-      $scope.nbr = 0;
       $scope.nom = null;
 
  
@@ -29,8 +31,8 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
 
             $scope.json = data;
             $scope.salle = data1;
-            console.log($scope.salle);
-            displayPlanning();                          
+            //console.log($scope.salle);
+                                      
           }).
           error(function(data1, status, headers, config) {
             console.log('ca marche pas');
@@ -47,7 +49,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       if($scope.infos != '<br/><br/> '){
         $('#details').html(info);
       }
-      else{
+      if(parent_id>1){
         $http.get('/GitHub/visualisation/recuperer_nb_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
           success(function(nb, status, headers, config) {
             $scope.nb = nb;
@@ -55,27 +57,29 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
             $http.get('/GitHub/visualisation/recuperer_nom_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
               success(function(nom, status, headers, config) {
                 $scope.nom = nom;
+                var nbr = 0;
                 var nom_salle = "";
 
-                while($scope.nom[$scope.nbr] != '>'){
-                  nom_salle += $scope.nom[$scope.nbr];
-                  $scope.nbr++;
+                while($scope.nom[nbr] != '>'){
+                  nom_salle += $scope.nom[nbr];
+                  nbr++;
                 }
                 $('#onglets').html('<li class="active"><a href="">'+nom_salle+'</a></li>');
                 nom_salle = "";
                 
-                for(i = 0, j = $scope.nb; i < j-1; i++) {
-                  while($scope.nom[$scope.nbr] != '>'){
+                for(i = 0; i < $scope.nb-1; i++) {
+                  while($scope.nom[nbr] != '>'){
                     nom_salle = "";
-                    $scope.nbr++;
+                    nbr++;
                   } 
-                  $scope.nbr++;                 
-                  while($scope.nom[$scope.nbr] != '<'){
-                    nom_salle += $scope.nom[$scope.nbr];
-                    $scope.nbr++;
+                  nbr++;                 
+                  while($scope.nom[nbr] != '<'){
+                    nom_salle += $scope.nom[nbr];
+                    nbr++;
                   }
                   document.getElementById('onglets').innerHTML+= '<li><a href="">'+nom_salle+'</a></li>';                            
                 }
+                displayPlanning();
               }).
               error(function(nb, status, headers, config) {
                 console.log('ca marche pas');
@@ -86,6 +90,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
               console.log('ca marche pas');
             });
       }
+      $('#salles').html('');
     }).
     error(function(info, status, headers, config) {
       console.log('infos salle ca marche pas');
