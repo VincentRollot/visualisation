@@ -114,6 +114,10 @@
 					}
 					//$sql = "INSERT INTO disponibilite VALUES('',".$t_ID." ,'".$weeks[a]->{'numberWeek'}." ,'".$weeks[a]->{'availability_date'}."','".$weeks[$a]->{'availability_dayofweek'}."', ".$weeks[$a]->{'availability_starttime'}.", '".$weeks[$a]->{'availability_duration'}."', '".$weeks[$a]->{'availability_duration'}.")";
 					
+					$sql = "INSERT INTO intervenant_disponibilite_semaine VALUES('',".$t_ID." ,".$t_weeks[$a]->{'numberWeek'}." ,".$t_weeks[$a]->{'lessonsMax'}." )";
+				
+					
+					$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 					
 					
 					//echo "</br></br>".count($t_weeks[$a]->{'places'})."</br></br>";

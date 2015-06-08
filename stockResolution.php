@@ -46,7 +46,7 @@
 				$c_teacher_list = $parsed_json_resolution->{$cpt}->{'teacher_list'};
 				$c_host_list = $parsed_json_resolution->{$cpt}->{'host_list'};
 				
-				$sql = "INSERT INTO cours VALUES(".$c_ID." ,".intval($c_intensity)." ,'".$c_date."' ,".intval($c_day)." , '".$c_start."' , ".$c_duration." , ".$c_nb_teacher[0]." , ".$c_nb_teacher[1].")";				
+				$sql = "INSERT INTO cours VALUES(".$c_ID." ,".$c_class_id." ,".intval($c_intensity)." ,'".$c_date."' ,".intval($c_day)." , '".$c_start."' , ".$c_duration." , ".$c_nb_teacher[0]." , ".$c_nb_teacher[1].")";				
 				echo $sql;
 				$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 				
