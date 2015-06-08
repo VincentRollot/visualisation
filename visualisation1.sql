@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 DROP DATABASE IF EXISTS `visualisation1`;
-CREATE DATABASE IF NOT EXISTS `visualisation1` DEFAULT CHARACTER SET utf8;
+CREATE DATABASE `visualisation1`;
 USE `visualisation1`;
 --
 -- Base de données :  `visualisation1`
@@ -783,7 +783,7 @@ INSERT INTO `intervenant_disponibilite_semaine` (`dispo_semaine_ID`, `int_ID_int
 --
 -- Structure de la table `jour_semaine`
 --
-
+DROP TABLE IF EXISTS `jour_semaine`;
 CREATE TABLE IF NOT EXISTS `jour_semaine` (
   `dayofweek` smallint(2) NOT NULL,
   `description` varchar(30) NOT NULL,
@@ -812,6 +812,7 @@ INSERT INTO `jour_semaine` (`dayofweek`, `description`) VALUES
 -- Structure de la table `libelle_erreurs`
 --
 
+DROP TABLE IF EXISTS `libelle_erreurs`;
 CREATE TABLE IF NOT EXISTS `libelle_erreurs` (
   `id_erreur` smallint(2) NOT NULL AUTO_INCREMENT,
   `libelle` text NOT NULL,
@@ -833,6 +834,7 @@ INSERT INTO `libelle_erreurs` (`id_erreur`, `libelle`) VALUES
 -- Structure de la table `libelle_indicateurs`
 --
 
+DROP TABLE IF EXISTS `libelle_indicateurs`;
 CREATE TABLE IF NOT EXISTS `libelle_indicateurs` (
   `id_indicateur` smallint(2) NOT NULL AUTO_INCREMENT,
   `libelle` text NOT NULL,
@@ -845,6 +847,7 @@ CREATE TABLE IF NOT EXISTS `libelle_indicateurs` (
 -- Structure de la table `region`
 --
 
+DROP TABLE IF EXISTS `region`;
 CREATE TABLE IF NOT EXISTS `region` (
   `region_ID` int(11) NOT NULL,
   `region_nom` text CHARACTER SET utf8 NOT NULL,
@@ -889,6 +892,7 @@ INSERT INTO `region` (`region_ID`, `region_nom`, `region_pays`, `region_lat`, `r
 -- Structure de la table `region_salle`
 --
 
+DROP TABLE IF EXISTS `region_salle`;
 CREATE TABLE IF NOT EXISTS `region_salle` (
   `region_salle_ID` int(11) NOT NULL AUTO_INCREMENT,
   `salle_ID` int(11) DEFAULT NULL,
@@ -1162,6 +1166,7 @@ INSERT INTO `region_salle` (`region_salle_ID`, `salle_ID`, `region_ID`) VALUES
 -- Structure de la table `root`
 --
 
+DROP TABLE IF EXISTS `root`;
 CREATE TABLE IF NOT EXISTS `root` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` varchar(50) NOT NULL,
@@ -2169,6 +2174,7 @@ INSERT INTO `secteur` (`secteur_ID`, `secteur_nom`, `secteur_parent_ID`, `secteu
 -- Structure de la table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `user_ID` int(11) NOT NULL AUTO_INCREMENT,
   `user_login` text NOT NULL,
