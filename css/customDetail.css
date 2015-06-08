@@ -1,44 +1,37 @@
+.titreDetail{
+	color: rgb(13,81,160);
+	font-size: 2.2em;
+	text-align: center;
+	margin-bottom: 5%;
+	text-decoration: underline;
+}
+
+.sous-titreDetail{
+	color: rgb(13,81,160);
+	font-size: 1.6em;
+	margin-bottom: 2%;
+	margin-top: 4%;
+}
+
+.content{
+	margin-top: 5%;
+}
+
+#colonne_gauche{
+	padding-left: 10%;
+}
+
+#colonne_droite{
+	padding-left: 10%;
+}
+
 #infos{
 	background-color: rgb(13,81,160);
 	color: white;
 	height: 5%;
 	text-align: center;
-}
-
-#nav{
-	height: 95%;
-	border-right: solid 1px rgb(13,81,160);
-}
-
-#search{
-	height: 7%;
-	border-bottom: solid 1px rgb(13,81,160);
-}
-
-
-#salles{
-	height: 7%;
-	border-bottom: solid 1px rgb(13,81,160);
-}
-
-#planning{
-	height: 71%;
-	border-bottom: solid 1px rgb(13,81,160);
-}
-
-#switch{
-	height: 10%;
-}
-
-#details{
-	height: 20%;
-	border-left: solid 1px rgb(13,81,160);
-	border-bottom: solid 1px rgb(13,81,160);
-}
-
-#indic{
-	height: 75%;
-	border-left: solid 1px rgb(13,81,160);
+	position: absolute;
+	bottom: 0px;
 }
 
 #logo{
@@ -52,23 +45,21 @@
 	text-decoration: underline;
 }
 
-.titreDetail{
-	text-align: center;
-	font-size: 300%;
+/* Modal */
+.modal-content{
+	background-color: rgb(13,81,160);
+	color : rgb(251,188,30);
 }
 
-.sous-titreDetail{
-	text-decoration: underline;
-	font-size: 150%;
-
+.modal-header{
+	border-bottom-color: rgb(251,188,30);
 }
 
-.content{
-	padding: 15px;
+.modal-footer{
+	border-top-color: rgb(251,188,30);
 }
 
-.bordure{
-    border-color: rgb(13,81,160);
+.no-padding{
+	padding-right: 0;
+	padding-left: 0;
 }
-
-

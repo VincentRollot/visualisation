@@ -8,68 +8,66 @@
   <link rel="stylesheet" type="text/css" href="libs/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="libs/jquery-ui.min.css" /> 
   <link rel="stylesheet" type="text/css" href="libs/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/customMainPage.css" />
   <link rel="stylesheet" type="text/css" href="css/customDetail.css" />
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 </head>
 
-  <body ng-controller="coursDetailController">
-    <div class="content">
-      <a href="javascript:history.back()" class="btn btn-default bordure" role="button">Retour</a>
-      <div class="titreDetail">Détails du cours</div>
-      <br>
-      <br>
+  <body>
 
-      <div class="row">
-        <div class="sous-titreDetail col-md-6">Informations générales :</div>
-        <div class="sous-titreDetail col-md-6">Informations intervenant :</div>
-      </div>
+    <?php
 
-      <div class="row">
-        <div class="col-md-6">Zone : </div>
-        <div class="col-md-6">Animateur :</div>
-      </div>
+    $cours = $_GET['cours'];
+    $zone = "zone";
+    $ville = "ville";
+    $salle = "salle";
+    $debut = "début";
+    $duree = "durée";
+    $intensite = "intensite";
+    $capacite = "capacite";
+    $animateur = "animateur";
+    $nb_animateur = "animateur";
+    $nb_animateur_possible = "animateur possible";
+    $nb_hote = "animateur";
+    $nb_hote_possible = "hote possible";
+    $formation = "oui";
 
-      <div class="row">
-        <div class="col-md-6">Ville :</div>
-      </div>
+    ?>
+    <div class = "container">
+      <div class="content">
+        <a href="javascript:history.back()" class="btn btn-default bordure" role="button">Retour</a>
+        <div class="titreDetail">Détails du cours</div>
 
-      <div class="row">
-        <div class="col-md-6">Salle :</div>
-      </div>
-      
-      <div class="row">
-        <div class="col-md-6">Heure de début :</div>        
-        <div class="sous-titreDetail col-md-6">Rappel indicateur :</div>
-      </div>
+        <div class="row">
+          <div id = "colonne_gauche" class="col-md-6">
+            <div class="sous-titreDetail">Informations générales :</div>
+            <div>
+                <p>Zone : <?php echo $zone; ?></p>
+                <p>Ville : <?php echo $ville; ?></p>
+                <p>Salle : <?php echo $salle; ?></p>
+                <p>Heure de début : <?php echo $debut; ?></p>
+                <p>Durée : <?php echo $duree; ?></p>
+                <p>Intensité : <?php echo $intensite; ?></p>
+                <p>Capacité du cours : <?php echo $capacite; ?></p>
+            </div>
+          </div>
+          <div class="col-md-6" id = "colonne_droite">
+            <div class="sous-titreDetail">Informations intervenant :</div>
+            Animateur : <?php echo $animateur; ?>
 
-      <div class="row">
-        <div class="col-md-6">Durée :</div>  
-        <div class="col-md-6">Nombre d'animateur :</div>       
+            <div class="sous-titreDetail">Rappel indicateur :</div>
+            <div>
+                <p>Nombre d'animateur : <?php echo $nb_animateur; ?></p>
+                <p>Nombre d'animateur encore possible : <?php echo $nb_animateur_possible; ?></p>
+                <p>Nombre d'hote : <?php echo $nb_hote; ?></p>
+                <p>Nombre d'hote encore possible : <?php echo $nb_hote_possible; ?></p>
+                <p>Formation de l’animateur correspond à l’intensité : <?php echo $formation; ?></p>
+            </div> 
+          </div> 
+        </div>
       </div>
-
-      <div class="row">
-        <div class="col-md-6">Intensité : {{cours.cours_type}}</div>
-        <div class="col-md-6">Nombre d'animateur encore possible :</div> 
-      </div>
-
-      <div class="row">        
-        <div class="col-md-6">Capacité du cours :</div>
-        <div class="col-md-6">Nombre d'hote :</div>   
-      </div>
-
-      <div class="row">
-        <div class="col-md-6"></div>
-        <div class="col-md-6">Nombre d'hote encore possible :</div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6"></div>
-        <div class="col-md-6">Formation de l’animateur correspond à l’intensité :</div>
-      </div> 
-    </div> 
+    </div>
     <ng-include src="'legende.php'"></ng-include>
-    <ng-include src="'footer.php'"></ng-include>    
+    <ng-include src="'footer.php'"></ng-include>   
   </body>
 
 <script src="libs/jquery-2.1.3.min.js"></script>
