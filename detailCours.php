@@ -6,14 +6,32 @@
   <link rel="icon" type="image/gif" href="http://design.gymsuedoise.com/USER20150427/favicon.gif" /> <!-- favicon -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
   <link rel="stylesheet" type="text/css" href="libs/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="libs/jquery-ui.min.css" /> 
   <link rel="stylesheet" type="text/css" href="libs/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/customMainPage.css" />
   <link rel="stylesheet" type="text/css" href="css/customDetail.css" />
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 </head>
 
-  <body ng-controller="coursDetailController">
+  <body>
+
+    <?php
+
+    $cours = $_GET['cours'];
+    $zone = "zone";
+    $ville = "ville";
+    $salle = "salle";
+    $debut = "début";
+    $duree = "durée";
+    $intensite = "intensite";
+    $capacite = "capacite";
+    $animateur = "animateur";
+    $nb_animateur = "animateur";
+    $nb_animateur_possible = "animateur possible";
+    $nb_hote = "animateur";
+    $nb_hote_possible = "hote possible";
+    $formation = "oui";
+
+    ?>
+
     <div class="content">
       <a href="javascript:history.back()" class="btn btn-default bordure" role="button">Retour</a>
       <div class="titreDetail">Détails du cours</div>
@@ -26,55 +44,51 @@
       </div>
 
       <div class="row">
-        <div class="col-md-6">Zone : </div>
-        <div class="col-md-6">Animateur :</div>
+        <div class="col-md-6">Zone : <?php echo $zone; ?></div>
+        <div class="col-md-6">Animateur : <?php echo $animateur; ?></div>
       </div>
 
       <div class="row">
-        <div class="col-md-6">Ville :</div>
+        <div class="col-md-6">Ville : <?php echo $ville; ?></div>
       </div>
 
       <div class="row">
-        <div class="col-md-6">Salle :</div>
+        <div class="col-md-6">Salle : <?php echo $salle; ?></div>
       </div>
       
       <div class="row">
-        <div class="col-md-6">Heure de début :</div>        
+        <div class="col-md-6">Heure de début : <?php echo $debut; ?></div>        
         <div class="sous-titreDetail col-md-6">Rappel indicateur :</div>
       </div>
 
       <div class="row">
-        <div class="col-md-6">Durée :</div>  
-        <div class="col-md-6">Nombre d'animateur :</div>       
+        <div class="col-md-6">Durée : <?php echo $duree; ?></div>  
+        <div class="col-md-6">Nombre d'animateur : <?php echo $nb_animateur; ?></div>       
       </div>
 
       <div class="row">
-        <div class="col-md-6">Intensité : {{cours.cours_type}}</div>
-        <div class="col-md-6">Nombre d'animateur encore possible :</div> 
+        <div class="col-md-6">Intensité : <?php echo $intensite; ?></div>
+        <div class="col-md-6">Nombre d'animateur encore possible : <?php echo $nb_animateur_possible; ?></div> 
       </div>
 
       <div class="row">        
-        <div class="col-md-6">Capacité du cours :</div>
-        <div class="col-md-6">Nombre d'hote :</div>   
+        <div class="col-md-6">Capacité du cours : <?php echo $capacite; ?></div>
+        <div class="col-md-6">Nombre d'hote : <?php echo $nb_hote; ?></div>   
       </div>
 
       <div class="row">
         <div class="col-md-6"></div>
-        <div class="col-md-6">Nombre d'hote encore possible :</div>
+        <div class="col-md-6">Nombre d'hote encore possible : <?php echo $nb_hote_possible; ?></div>
       </div>
 
       <div class="row">
         <div class="col-md-6"></div>
-        <div class="col-md-6">Formation de l’animateur correspond à l’intensité :</div>
+        <div class="col-md-6">Formation de l’animateur correspond à l’intensité : <?php echo $formation; ?></div>
       </div> 
     </div> 
     <ng-include src="'legende.php'"></ng-include>
     <ng-include src="'footer.php'"></ng-include>    
   </body>
-
-<script src="libs/jquery-2.1.3.min.js"></script>
-<script src="libs/angular.min.js"></script>    
-<script src="libs/jquery-ui.min.js"></script>
+ 
 <script src="libs/bootstrap.min.js"></script>
-<script src="js/jsMainPage.js"></script>
 </html>

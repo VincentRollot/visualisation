@@ -25,7 +25,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
           success(function(data1, status, headers, config) {
 
             $scope.json = data;
-            $scope.salle = data1;
+            $scope.salle = 1;
             console.log($scope.salle);
             displayPlanning();
           }).
@@ -130,9 +130,9 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
 
       eventRender: function (event, element) {
         element.attr('href', 'javascript:void(0);');
-        element.click(function() {   
-          window.open("../detailCours.php","_self"); // ../visualisation/detailCours.php
-          alert(event.title);
+        element.click(function() {  
+        var cours = event.title.substr(8,9);
+        window.open("detailCours.php?cours="+cours,"_self"); // ../visualisation/detailCours.php
         });
       },
     lang : 'fr',
@@ -143,7 +143,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     defaultView : 'agendaWeek',
     handleWindowResize : true,
     slotDuration : '00:30:00',
-    aspectRatio: 1.1,
+    aspectRatio: 1.69,
     defaultDate: '2015-06-01',
     editable: true,
     eventLimit: true,
