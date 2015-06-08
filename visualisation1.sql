@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 DROP DATABASE IF EXISTS `visualisation1`;
-CREATE DATABASE `visualisation1`;
+CREATE DATABASE `visualisation1` DEFAULT CHARACTER SET utf8;
 USE `visualisation1`;
 --
 -- Base de données :  `visualisation1`
