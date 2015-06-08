@@ -16,15 +16,16 @@
 		mysqli_query($bdd, "DELETE FROM disponibilite_salle") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 		mysqli_query($bdd, "DELETE FROM intervenant") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 		mysqli_query($bdd, "DELETE FROM intensite_intervenant") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
+		mysqli_query($bdd, "DELETE FROM intervenant_disponibilite_semaine") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 		
 		//On remet la BDD à 0
 		$sql_zero = "ALTER TABLE disponibilite AUTO_INCREMENT=0";
 		mysqli_query($bdd, $sql_zero) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 		$sql_un = "ALTER TABLE disponibilite_salle AUTO_INCREMENT=0";
 		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
-		$sql_un = "ALTER TABLE intervenant AUTO_INCREMENT=0";
-		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 		$sql_un = "ALTER TABLE intensite_intervenant AUTO_INCREMENT=0";
+		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+		$sql_un = "ALTER TABLE intervenant_disponibilite_semaine AUTO_INCREMENT=0";
 		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 		
 		unset ($sql_zero,$sql_un);
@@ -37,7 +38,7 @@
 			
 			//Conversion des caractères spéciaux avant insertion dans la BDD
 				//$t_users = $parsed_json_alimentation[$cpt]->{'user'};
-				$t_users = $parsed_json_alimentation[$cpt]->{'user'};
+				$t_users = $j_disponibilite->{'user'};
 				$t_ID = $t_users->{'id'};
 				//echo $t_ID;
 				$t_mail = mysqli_real_escape_string($bdd, $t_users->{'mail'});
@@ -68,13 +69,14 @@
 				
 				//$t_staff_is_host =  $t_users->{'staff_is_host'};
 				//$t_staff_is_host = FALSE;
-				$t_weeks = $parsed_json_alimentation[$cpt]->{'weeks'};
+				$t_weeks = $j_disponibilite->{'weeks'};
 				
 				//echo "</br></bt>\n/n";
 				//echo count($t_weeks);
 				//echo $t_weeks[0]->{'numberWeek'}."</br>";
 				//echo "</br></bt>staff_is_host".$t_staff_is_host."</br></bt>";
-				$sql = "INSERT INTO intervenant VALUES(".$t_ID." ,'".$t_mail."' ,'".$t_name."','".$t_firstname."', ".$t_staff_is_teacher.", ".$t_staff_is_host." )";
+				$sql = "INSERT INTO intervenant (int_ID_intervenant, int_mail, int_nom, int_prenom, int_is_teacher, int_is_host)
+				VALUES(".$t_ID." ,'".$t_mail."' ,'".$t_name."','".$t_firstname."', ".$t_staff_is_teacher.", ".$t_staff_is_host." )";
 				
 				//echo $sql;
 				
@@ -83,7 +85,7 @@
 				
 				for( $i=0; $i<count($t_intensity) ; $i++)
 				{
-					$sql = "INSERT INTO intensite_intervenant VALUES('',".$t_ID." ,".$t_intensity[$i]." )";				
+					$sql = "INSERT INTO intensite_intervenant (id_intervenant, class_level) VALUES (".$t_ID." ,".$t_intensity[$i]." )";				
 				//	echo $sql;
 					$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 					
@@ -100,21 +102,27 @@
 					
 					for( $i=0; $i<count($t_weeks[$a]->{'availabilities'}) ; $i++)
 					{
-						$sql = "INSERT INTO disponibilite VALUES('',".$t_ID." ,".$t_weeks[$a]->{'numberWeek'}." ,'".$t_weeks[$a]->{'availabilities'}[$i]->{'availability_date'}."','".$t_weeks[$a]->{'availabilities'}[$i]->{'availability_dayofweek'}."', '".$t_weeks[$a]->{'availabilities'}[$i]->{'availability_starttime'}."', '".$t_weeks[$a]->{'availabilities'}[$i]->{'availability_duration'}."' )";
+						
+						$time = ($t_weeks[$a]->{'availabilities'}[$i]->{'availability_starttime'}).":00";
+						$sql = "INSERT INTO disponibilite (disponibilite_ID_intervenant, disponibilite_num_semaine, disponibilite_date, disponibilite_joursemaine, disponibilite_heuredebut, disponibilite_duree)
+						VALUES(".$t_ID." ,".$t_weeks[$a]->{'numberWeek'}." ,'".$t_weeks[$a]->{'availabilities'}[$i]->{'availability_date'}."','".$t_weeks[$a]->{'availabilities'}[$i]->{'availability_dayofweek'}."', '".$time."', ".$t_weeks[$a]->{'availabilities'}[$i]->{'availability_duration'}." )";
+						
 						//echo $sql;
 						//echo "</br> Le nombre de disponibilite est ".count($t_weeks[$a]->{'availabilities'})."</br>";
 						$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 						$id_ajout=($bdd->insert_id);
 						for( $b=0; $b<count($t_weeks[$a]->{'places'});  $b++)
 						{
-							$sql = "INSERT INTO disponibilite_salle VALUES('',".$id_ajout." ,".$t_weeks[$a]->{'places'}[$b].")";
+							$sql = "INSERT INTO disponibilite_salle (disponibilite_ID, id_salle)
+							VALUES(".$id_ajout." ,".$t_weeks[$a]->{'places'}[$b].")";
 							$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 						}
 						
 					}
 					//$sql = "INSERT INTO disponibilite VALUES('',".$t_ID." ,'".$weeks[a]->{'numberWeek'}." ,'".$weeks[a]->{'availability_date'}."','".$weeks[$a]->{'availability_dayofweek'}."', ".$weeks[$a]->{'availability_starttime'}.", '".$weeks[$a]->{'availability_duration'}."', '".$weeks[$a]->{'availability_duration'}.")";
 					
-					$sql = "INSERT INTO intervenant_disponibilite_semaine VALUES('',".$t_ID." ,".$t_weeks[$a]->{'numberWeek'}." ,".$t_weeks[$a]->{'lessonsMax'}." )";
+					$sql = "INSERT INTO intervenant_disponibilite_semaine (int_ID_intervenant, numero_semaine, lessonsMax) 
+					VALUES(".$t_ID." ,".$t_weeks[$a]->{'numberWeek'}." ,".$t_weeks[$a]->{'lessonsMax'}." )";
 				
 					
 					$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
