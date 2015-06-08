@@ -17,12 +17,12 @@
 	height: 7%;
 	border-bottom: solid 1px rgb(13,81,160);
 }
-
-
+/*
 #salles{
 	height: 7%;
 	border-bottom: solid 1px rgb(13,81,160);
 }
+*/
 
 #planning{
 	height: 81%;
@@ -77,3 +77,46 @@
 	padding-right: 0;
 	padding-left: 0;
 }
+
+/* onglets */
+#onglets
+{
+    font : bold 11px Batang, arial, serif;
+    list-style-type : none;
+    padding-bottom : 22px; /* à modifier suivant la taille de la police ET de la hauteur de l'onglet dans #onglets li */
+    border-bottom : 1px solid rgb(13,81,160);
+    margin-left : 0;
+}
+
+#onglets li
+{
+    float : left;
+    height : 21px; /* à modifier suivant la taille de la police pour centrer le texte dans l'onglet */
+    background-color: #F4F9FD;
+    margin : 2px 2px 0 2px !important;  /* Pour les navigateurs autre que IE */
+    margin : 1px 2px 0 2px;  /* Pour IE  */
+    border : 1px solid rgb(13,81,160);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+#onglets li.active
+{
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+}
+
+#onglets a
+{
+    display : block;
+    color : rgb(13,81,160);
+    text-decoration : none;
+    padding : 4px;
+}
+
+#onglets a:hover
+{
+    background : #fff;
+}
+
+

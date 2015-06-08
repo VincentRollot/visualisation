@@ -25,9 +25,8 @@
       <div  class="col-md-7">
         <div class="row" id="search">
           search
-        </div>
-        <div class="row" id="salles">
-          salles
+        </div>          
+        <div class="row" id="salles">       
         </div>
         <div class="row" id="planning">
           <div id='calendar'></div>

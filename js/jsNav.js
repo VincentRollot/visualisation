@@ -24,7 +24,7 @@ $(function () {
       }
     },
 
-    "plugins" : [ "search" , "sort" , "types"]
+    "plugins" : [ "search" , "types"]
     })
 
   var to = false;

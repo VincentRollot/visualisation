@@ -17,17 +17,20 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       $scope.salle = null;
       $scope.json = null;
       $scope.infos = null;
+      $scope.nb = null;
+      $scope.nbr = 0;
+      $scope.nom = null;
 
  
-  $http.get('/visualisation/content.php'). //    /GitHub/visualisation/content.php
+  $http.get('/GitHub/visualisation/content.php'). //    /GitHub/visualisation/content.php
     success(function(data, status, headers, config) {
-        $http.get('/visualisation/recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+        $http.get('/GitHub/visualisation/recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
           success(function(data1, status, headers, config) {
 
             $scope.json = data;
             $scope.salle = data1;
             console.log($scope.salle);
-            displayPlanning();
+            displayPlanning();                          
           }).
           error(function(data1, status, headers, config) {
             console.log('ca marche pas');
@@ -37,21 +40,56 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
           console.log('ca marche pas');
   });
 
-  $http.get('/visualisation/recuperer_info_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+  $http.get('/GitHub/visualisation/recuperer_info_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
     success(function(info, status, headers, config) {
 
       $scope.infos = info;
       if($scope.infos != '<br/><br/> '){
         $('#details').html(info);
       }
+      else{
+        $http.get('/GitHub/visualisation/recuperer_nb_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+          success(function(nb, status, headers, config) {
+            $scope.nb = nb;
+            $('#salles').html('<ul id="onglets"></ul>');
+            $http.get('/GitHub/visualisation/recuperer_nom_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+              success(function(nom, status, headers, config) {
+                $scope.nom = nom;
+                var nom_salle = "";
+
+                while($scope.nom[$scope.nbr] != '>'){
+                  nom_salle += $scope.nom[$scope.nbr];
+                  $scope.nbr++;
+                }
+                $('#onglets').html('<li class="active"><a href="">'+nom_salle+'</a></li>');
+                nom_salle = "";
+                
+                for(i = 0, j = $scope.nb; i < j-1; i++) {
+                  while($scope.nom[$scope.nbr] != '>'){
+                    nom_salle = "";
+                    $scope.nbr++;
+                  } 
+                  $scope.nbr++;                 
+                  while($scope.nom[$scope.nbr] != '<'){
+                    nom_salle += $scope.nom[$scope.nbr];
+                    $scope.nbr++;
+                  }
+                  document.getElementById('onglets').innerHTML+= '<li><a href="">'+nom_salle+'</a></li>';                            
+                }
+              }).
+              error(function(nb, status, headers, config) {
+                console.log('ca marche pas');
+              });
+             
+            }).
+            error(function(nb, status, headers, config) {
+              console.log('ca marche pas');
+            });
+      }
     }).
     error(function(info, status, headers, config) {
       console.log('infos salle ca marche pas');
-  });
-        
-
-
-
+  });   
 
   var displayPlanning = function(){
 
@@ -129,9 +167,9 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       //},
 
       eventRender: function (event, element) {
-        element.attr('href', 'javascript:void(0);');
+        element.attr('href', 'cliquez pour voir détail du cours');
         element.click(function() {   
-          window.open("../detailCours.php","_self"); // ../visualisation/detailCours.php
+          window.open("../visualisation/detailCours.php","_self"); // ../visualisation/detailCours.php
           alert(event.title);
         });
       },
@@ -159,3 +197,4 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   });
 
 });
+
