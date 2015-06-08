@@ -24,9 +24,10 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       $scope.nom = null;
 
  
-  $http.get('/GitHub/visualisation/content.php'). //    /GitHub/visualisation/content.php
+
+  $http.get('content.php'). //    /GitHub/visualisation/content.php
     success(function(data, status, headers, config) {
-        $http.get('/GitHub/visualisation/recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+        $http.get('recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
           success(function(data1, status, headers, config) {
 
             $scope.json = data;
@@ -42,9 +43,9 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
           console.log('ca marche pas');
   });
 
-  $http.get('/GitHub/visualisation/recuperer_info_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
-    success(function(info, status, headers, config) {
 
+  $http.get('recuperer_info_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+    success(function(info, status, headers, config) {
       $scope.infos = info;
       if($scope.infos != '<br/><br/> '){
         $('#details').html(info);

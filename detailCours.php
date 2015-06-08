@@ -9,7 +9,6 @@
   <link rel="stylesheet" type="text/css" href="libs/jquery-ui.min.css" /> 
   <link rel="stylesheet" type="text/css" href="libs/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="css/customDetail.css" />
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 </head>
 
   <body>
