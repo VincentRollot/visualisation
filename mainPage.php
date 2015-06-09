@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// If the user tries to go directly to this page, the variable will be empty and he will be redirected to the login page
+if(empty($_SESSION['login']))
+{
+    header('Location: index.php');
+    exit();
+}
+?>
+
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="GymSuedoise">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,9 +35,9 @@
       <ng-include src="'nav.php'"></ng-include> 
       <div  class="col-md-7">
         <div class="row" id="search">
-          search
         </div>          
-        <div class="row" id="salles">       
+        <div class="row" id="salles"> 
+          <ul id="onglets"></ul>      
         </div>
         <div class="row" id="planning">
           <div id='calendar'></div>
@@ -37,7 +48,6 @@
           Veuillez séléctionner un lieu pour voir le détail (nom, adresse, ...)
         </div>
         <div class="row" id="indic">
-          indic
         </div>
       </div>
     

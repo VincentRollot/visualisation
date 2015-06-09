@@ -38,6 +38,15 @@
 	border-left: solid 1px rgb(13,81,160);
 }
 
+.logout{
+	color: rgb(251,188,30);
+
+}
+
+.logout:hover{
+	color : white;
+}
+
 #logo{
 	height: 100%;
 	width: 100%;

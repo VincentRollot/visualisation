@@ -39,6 +39,15 @@
 	width: 100%;
 }
 
+.logout{
+	color: rgb(251,188,30);
+
+}
+
+.logout:hover{
+	color : white;
+}
+
 #divLegende{
 	cursor: pointer;
 	color: rgb(251,188,30);

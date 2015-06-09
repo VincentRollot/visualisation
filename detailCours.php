@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// If the user tries to go directly to this page, the variable will be empty and he will be redirected to the login page
+if(empty($_SESSION['login']))
+{
+    header('Location: index.php');
+    exit();
+}
+?>
+
+
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="GymSuedoise">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

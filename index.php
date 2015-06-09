@@ -20,14 +20,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-offset-4 col-md-4" id="form">
-          <form role="form" method="POST" action="accueil.php">
+          <form role="form" method="POST" action="identification.php" name="form_log" target="_self">
             <div class="form-group">
               <label for="identify">Identifiant</label>
-              <input type="email" class="form-control" id="identify" placeholder="Identifiant">
+              <input type="login" class="form-control" name='login' placeholder="Identifiant">
             </div>
             <div class="form-group">
               <label for="password">Mot de passe</label>
-              <input type="password" class="form-control" id="password" placeholder="*******">
+              <input type="password" class="form-control" name="password" placeholder="*******">
             </div>
             <button type="submit" class="btn btn-default" href="//accueil.php">Connexion</button>
           </form>
