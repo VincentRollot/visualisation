@@ -47,11 +47,11 @@
 			//$id_cours = $line['id_cours'];
 			$id_intervenant = $line['int_ID_intervenant'];
 			//echo "</br>".$line[$cpt]."</br>";
-			echo "</br>".$id_intervenant."</br>";
+			//echo "</br>".$id_intervenant."</br>";
 			
 			
-			$sql = "SELECT * FROM cours_intervenant WHERE id_intervenant=".$id_intervenant;
-			$cours = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+			$sql1 = "SELECT * FROM cours_intervenant WHERE id_intervenant=".$id_intervenant;
+			$cours = mysqli_query($bdd, $sql1) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 			$numero_semaine=1;
 			$nombre_de_cours_semaine=0;
 			$fin_semaine=FALSE;
@@ -62,13 +62,17 @@
 				//echo " ".$cours_prof['id_cours'];
 				//echo $cours_prof['id_cours'];
 				
-				$sql = "SELECT * FROM cours WHERE cours_ID=".$cours_prof['id_cours'];
-				$info_cours = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+				$sql2 = "SELECT * FROM cours WHERE cours_ID=".$cours_prof['id_cours'];
+				$info_cours = mysqli_query($bdd, $sql2) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 				while ($infos_cours = mysqli_fetch_array($info_cours)) {
 					//echo " ".$infos_cours['cours_date'];
-					$sql = "SELECT * FROM disponibilite WHERE disponibilite_ID_intervenant=".$id_intervenant." AND disponibilite_date='".$infos_cours['cours_date']."'";
+					//echo "fffffffffffffff".$infos_cours['cours_ID']." a h: ".$infos_cours['cours_heuredebut'];
+					$sql3 = "SELECT * FROM disponibilite WHERE disponibilite_ID_intervenant=".$id_intervenant." AND disponibilite_date='".$infos_cours['cours_date']."'";
 					$disponibilite_ok=FALSE;
-					$disponibilite_prof = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+					$disponibilite_prof = mysqli_query($bdd, $sql3) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+					$horaire_disponibilite_debut;
+					$horaire_cours_debut;
+					//echo "</br>bb".$infos_cours['cours_ID']."</br>";
 					//echo "  id ".$id_intervenant." dispo le ".$infos_cours['cours_date'];
 					while ($disponibilite_jour = mysqli_fetch_array($disponibilite_prof)) {
 						//echo "  AAAA";
@@ -78,7 +82,7 @@
 						//echo $disponibilite_jour['disponibilite_heuredebut'];
 						$horaire_disponibilite_debut=explode(":", $disponibilite_jour['disponibilite_heuredebut']);
 						$horaire_cours_debut=explode(":", $infos_cours['cours_heuredebut']);
-						
+						//echo "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP".$horaire_cours_debut[0];
 						
 						//$hours = floor($disponibilite_jour['disponibilite_duree']/60);
 						$horaire_cours_fin=$horaire_cours_debut;
@@ -97,7 +101,7 @@
 						$disponibilite_cours_fin=$horaire_disponibilite_debut;
 						//$horaire_cours_fin[1]=$horaire_cours_fin[1]+$disponibilite_jour['disponibilite_duree']/60;
 						$heures = floor($disponibilite_jour['disponibilite_duree']/60);
-						$disponibilite_cours_fin[1]=$disponibilite_cours_fin[1]+$infos_cours['cours_duree'];
+						$disponibilite_cours_fin[1]=$disponibilite_cours_fin[1]+$disponibilite_jour['disponibilite_duree'];
 						//echo "duree ".$infos_cours['cours_dure'];
 						//echo $disponibilite_jour['disponibilite_duree'];
 						$heures = floor($disponibilite_cours_fin[1]/60);
@@ -182,14 +186,28 @@
 						
 						
 					}
+					/*echo " on est sorti ".$horaire_cours_debut[0];
+					echo  " nombre de resultats =".mysqli_num_rows($disponibilite_prof);*/
+					
 					
 					if($disponibilite_ok==FALSE)
 					{
-						echo " PROBLEME !!! ";
-						echo "le cours id ".$cours_prof['id_cours']."débute à ".$horaire_cours_debut[0].":".$horaire_cours_debut[1];
-						echo " et finit à ".$horaire_cours_fin[0].":".$horaire_cours_fin[1];
-						echo " l enseignant id ".$id_intervenant." debute à ".$horaire_disponibilite_debut[0].":".$horaire_disponibilite_debut[1];
-						echo " et finit à ".$disponibilite_cours_fin[0].":".$disponibilite_cours_fin[1];
+						if(mysqli_num_rows($disponibilite_prof)==0)
+						{
+							echo "</br> PROBLEME !!! ";
+							echo "".$disponibilite_jour;
+							echo "Le professeur ".$id_intervenant." n a demande aucun cours le ".$infos_cours['cours_date'].". Il ne peut assurer le cours ".$cours_prof['id_cours'];
+						}
+						else
+						{
+							echo "</br> ERREUR !!! ";
+							//echo "le cours id ".$infos_cours['cours_ID']." débute à ".$horaire_cours_debut[0].":".$horaire_cours_debut[1];
+							echo "le cours id ".$cours_prof['id_cours']." débute à ".$horaire_cours_debut[0].":".$horaire_cours_debut[1];
+							echo " et finit à ".$horaire_cours_fin[0].":".$horaire_cours_fin[1];
+							echo " l enseignant id ".$id_intervenant." debute à ".$horaire_disponibilite_debut[0].":".$horaire_disponibilite_debut[1];
+							echo " et finit à ".$disponibilite_cours_fin[0].":".$disponibilite_cours_fin[1];
+						}
+						
 					}
 				}
 				
