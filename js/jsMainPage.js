@@ -74,36 +74,38 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         success(function(nb, status, headers, config) {
           $scope.nb = nb;
           console.log("je suis là");
-          $('#salles').html('<ul id="onglets"></ul>');
-          $http.get('recuperer_nom_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
-            success(function(nom, status, headers, config) {
-              $scope.nom = nom;
-              var nbr = 0;
-              var nom_salle = "";
+          if ($scope.nb != 0){
+            $('#salles').html('<ul id="onglets"></ul>');
+            $http.get('recuperer_nom_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+              success(function(nom, status, headers, config) {
+                $scope.nom = nom;
+                var nbr = 0;
+                var nom_salle = "";
 
-              while($scope.nom[nbr] != '>'){
-                nom_salle += $scope.nom[nbr];
-                nbr++;
-              }
-              $('#onglets').html('<li class="active"><a href="">'+nom_salle+'</a></li>');
-              nom_salle = "";
-              
-              for(i = 0; i < $scope.nb-1; i++) {
                 while($scope.nom[nbr] != '>'){
-                  nom_salle = "";
-                  nbr++;
-                } 
-                nbr++;                 
-                while($scope.nom[nbr] != '<'){
                   nom_salle += $scope.nom[nbr];
                   nbr++;
                 }
-                document.getElementById('onglets').innerHTML+= '<li><a href="">'+nom_salle+'</a></li>';                            
-              }
-            }).
-            error(function(nom, status, headers, config) {
-              console.log('ca marche pas');
-            });
+                $('#onglets').html('<li class="active"><a href="">'+nom_salle+'</a></li>');
+                nom_salle = "";
+                
+                for(i = 0; i < $scope.nb-1; i++) {
+                  while($scope.nom[nbr] != '>'){
+                    nom_salle = "";
+                    nbr++;
+                  } 
+                  nbr++;                 
+                  while($scope.nom[nbr] != '<'){
+                    nom_salle += $scope.nom[nbr];
+                    nbr++;
+                  }
+                  document.getElementById('onglets').innerHTML+= '<li><a href="">'+nom_salle+'</a></li>';                            
+                }
+              }).
+              error(function(nom, status, headers, config) {
+                console.log('ca marche pas');
+              });
+          }
            
         }).
         error(function(nb, status, headers, config) {
