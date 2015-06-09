@@ -5,100 +5,113 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     $("#legende").modal('show');
   }
 
-    $scope.salle = null;
-    $scope.json = null;
-    $scope.infos = null;
-    $scope.nb = null;
-    $scope.nom = null;
+  $scope.salle = null;
+  $scope.json = null;
+  $scope.infos = null;
+  $scope.nb = null;
+  $scope.nom = null;
   
   $('#jstree').on('changed.jstree', function (e, data) {
     if(data && data.selected && data.selected.length) {
-    var i, j, r = [];
-    var salle_selected;
-    var parent_id;
-    for(i = 0, j = data.selected.length; i < j; i++) {
-      r.push(data.instance.get_node(data.selected[i]).text);
-      salle_selected = data.instance.get_node(data.selected[i]).text;
-      parent_id = data.instance.get_node(data.selected[i]).parent;
-      //console.log(parent_id);
+      var i, j;
+      var r = [];
+      var salle_selected;
+      var parent_id;
+      for(i = 0, j = data.selected.length; i < j; i++) {
+        r.push(data.instance.get_node(data.selected[i]).text);
+        salle_selected = data.instance.get_node(data.selected[i]).text;
+        parent_id = data.instance.get_node(data.selected[i]).parent;
+      }
+
+      chargerDonnees(salle_selected);
+      afficherDetails(salle_selected, r);
+      afficherOnglets(parent_id, salle_selected);
     }
-    $('#details').html('Lieu : <br/>' + r.join(', '));
+  });
 
 
 
-
+  var chargerDonnees = function(salle_selected){
     $http.get('content.php'). //    /GitHub/visualisation/content.php
       success(function(data, status, headers, config) {
-          $http.get('recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
-            success(function(data1, status, headers, config) {
+        $http.get('recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+          success(function(data1, status, headers, config) {
 
-              $scope.json = data;
-              $scope.salle = data1;
-              displayPlanning();                          
-            }).
-            error(function(data1, status, headers, config) {
-              console.log('ca marche pas');
-            });
+            $scope.json = data;
+            $scope.salle = data1;
+            displayPlanning();                          
           }).
-          error(function(data, status, headers, config) {
+          error(function(data1, status, headers, config) {
             console.log('ca marche pas');
+        });
+      }).
+      error(function(data, status, headers, config) {
+        console.log('ca marche pas');
     });
+  }
 
 
-  $http.get('recuperer_info_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
-    success(function(info, status, headers, config) {
-      $scope.infos = info;
-      if($scope.infos != '<br/><br/> '){
-        $('#details').html(info);
-      }
-      $('#salles').html('');
-    }).
-    error(function(info, status, headers, config) {
-      console.log('infos salle ca marche pas');
-  });  
+  var afficherDetails = function(salle_selected, r){
+    $('#details').html('Lieu : <br/>' + r.join(', '));
+    $http.get('recuperer_info_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+      success(function(info, status, headers, config) {
+        $scope.infos = info;
+        if($scope.infos != '<br/><br/> '){
+          $('#details').html(info);
+        }
+        $('#onglets').html('');
+      }).
+      error(function(info, status, headers, config) {
+        console.log('infos salle ca marche pas');
+    });  
+  }
 
+  var afficherOnglets = function(parent_id, salle_selected){
+    console.log(parent_id);
+    if(parent_id>1){
+      console.log("j'y suis");
+      $http.get('recuperer_nb_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+        success(function(nb, status, headers, config) {
+          $scope.nb = nb;
+          console.log("je suis là");
+          $('#salles').html('<ul id="onglets"></ul>');
+          $http.get('recuperer_nom_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+            success(function(nom, status, headers, config) {
+              $scope.nom = nom;
+              var nbr = 0;
+              var nom_salle = "";
 
-        if(parent_id>1){
-          console.log(parent_id);
-        $http.get('recuperer_nb_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
-          success(function(nb, status, headers, config) {
-            $scope.nb = nb;
-            $('#salles').html('<ul id="onglets"></ul>');
-            $http.get('recuperer_nom_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
-              success(function(nom, status, headers, config) {
-                $scope.nom = nom;
-                var nbr = 0;
-                var nom_salle = "";
-
+              while($scope.nom[nbr] != '>'){
+                nom_salle += $scope.nom[nbr];
+                nbr++;
+              }
+              $('#onglets').html('<li class="active"><a href="">'+nom_salle+'</a></li>');
+              nom_salle = "";
+              
+              for(i = 0; i < $scope.nb-1; i++) {
                 while($scope.nom[nbr] != '>'){
+                  nom_salle = "";
+                  nbr++;
+                } 
+                nbr++;                 
+                while($scope.nom[nbr] != '<'){
                   nom_salle += $scope.nom[nbr];
                   nbr++;
                 }
-                $('#onglets').html('<li class="active"><a href="">'+nom_salle+'</a></li>');
-                nom_salle = "";
-                
-                for(i = 0; i < $scope.nb-1; i++) {
-                  while($scope.nom[nbr] != '>'){
-                    nom_salle = "";
-                    nbr++;
-                  } 
-                  nbr++;                 
-                  while($scope.nom[nbr] != '<'){
-                    nom_salle += $scope.nom[nbr];
-                    nbr++;
-                  }
-                  document.getElementById('onglets').innerHTML+= '<li><a href="">'+nom_salle+'</a></li>';                            
-                }
-              }).
-              error(function(nom, status, headers, config) {
-                console.log('ca marche pas');
-              });
-             
+                document.getElementById('onglets').innerHTML+= '<li><a href="">'+nom_salle+'</a></li>';                            
+              }
             }).
-            error(function(nb, status, headers, config) {
+            error(function(nom, status, headers, config) {
               console.log('ca marche pas');
             });
-      } 
+           
+        }).
+        error(function(nb, status, headers, config) {
+          console.log('ca marche pas');
+      });
+    } 
+  }
+
 
   var displayPlanning = function(){
 
@@ -210,8 +223,5 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     //http://fullcalendar.io/docs/event_data/Event_Object/#color-options  Pour la couleur individuelle des éléments
   });
   }
-      }
-  });
-
 });
 
