@@ -16,10 +16,12 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     var i, j, r = [];
     var salle_selected;
     var parent_id;
+    var secteur_id;
     for(i = 0, j = data.selected.length; i < j; i++) {
       r.push(data.instance.get_node(data.selected[i]).text);
       salle_selected = data.instance.get_node(data.selected[i]).text;
       parent_id = data.instance.get_node(data.selected[i]).parent;
+      secteur_id = data.instance.get_node(data.selected[i]).id;
       //console.log(parent_id);
     }
     $('#details').html('Lieu : <br/>' + r.join(', '));
@@ -51,54 +53,56 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       if($scope.infos != '<br/><br/> '){
         $('#details').html(info);
       }
-      $('#salles').html('');
+      $('#onglets').html('');
     }).
     error(function(info, status, headers, config) {
       console.log('infos salle ca marche pas');
   });  
 
 
-        if(parent_id>1){
-          console.log(parent_id);
-        $http.get('recuperer_nb_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
-          success(function(nb, status, headers, config) {
-            $scope.nb = nb;
-            $('#salles').html('<ul id="onglets"></ul>');
-            $http.get('recuperer_nom_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
-              success(function(nom, status, headers, config) {
-                $scope.nom = nom;
-                var nbr = 0;
-                var nom_salle = "";
+  if(parent_id>1){
+    //console.log(parent_id);
+    $http.get('recuperer_nb_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+      success(function(nb, status, headers, config) {
+      $scope.nb = nb;
+      if($scope.nb != 0 ){
+        $('#salles').html('<ul id="onglets"></ul>');
+        $http.get('recuperer_nom_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
+          success(function(nom, status, headers, config) {
+            $scope.nom = nom;
+            var nbr = 0;
+            var nom_salle = "";
 
-                while($scope.nom[nbr] != '>'){
-                  nom_salle += $scope.nom[nbr];
-                  nbr++;
-                }
-                $('#onglets').html('<li class="active"><a href="">'+nom_salle+'</a></li>');
+            while($scope.nom[nbr] != '>'){
+              nom_salle += $scope.nom[nbr];
+              nbr++;
+            }
+            $('#onglets').html('<li class="active"><a href="">'+nom_salle+'</a></li>');
+            nom_salle = "";
+            
+            for(i = 0; i < $scope.nb-1; i++) {
+              while($scope.nom[nbr] != '>'){
                 nom_salle = "";
-                
-                for(i = 0; i < $scope.nb-1; i++) {
-                  while($scope.nom[nbr] != '>'){
-                    nom_salle = "";
-                    nbr++;
-                  } 
-                  nbr++;                 
-                  while($scope.nom[nbr] != '<'){
-                    nom_salle += $scope.nom[nbr];
-                    nbr++;
-                  }
-                  document.getElementById('onglets').innerHTML+= '<li><a href="">'+nom_salle+'</a></li>';                            
-                }
-              }).
-              error(function(nom, status, headers, config) {
-                console.log('ca marche pas');
-              });
-             
-            }).
-            error(function(nb, status, headers, config) {
-              console.log('ca marche pas');
-            });
+                nbr++;
+              } 
+              nbr++;                 
+              while($scope.nom[nbr] != '<'){
+                nom_salle += $scope.nom[nbr];
+                nbr++;
+              }
+              document.getElementById('onglets').innerHTML+= '<li><a href="">'+nom_salle+'</a></li>';                            
+            }
+          }).
+          error(function(nom, status, headers, config) {
+            console.log('ca marche pas');
+          });
       } 
+        }).
+      error(function(nb, status, headers, config) {
+        console.log('ca marche pas');
+      });
+      
+  } 
 
   var displayPlanning = function(){
 

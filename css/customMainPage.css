@@ -78,19 +78,6 @@
 	padding-left: 0;
 }
 
-a.carre{
-width:110px; 
-height:20px;  
-text-decoration:none; 
-color:white;
-text-align:center; 
-font-weight:bold; 
-background-color:rgb(260,0,0);
-padding:5px}
- 
-.carre{
-padding:5px;}
-
 /* onglets */
 #onglets
 {

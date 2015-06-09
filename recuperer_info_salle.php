@@ -10,7 +10,7 @@
 
 	//echo $ligne[0];
 	//echo $ligne[1];
-	echo $ligne[1].'<br/>'.$ligne[2].'<br/>'.$ligne[3].' '.$ligne[4];
+	echo $ligne[2].'<br/>'.$ligne[3].'<br/>'.$ligne[4].' '.$ligne[5];
 
 	
 	//Fermeture de la connexion à la BDD

@@ -91,15 +91,15 @@
               Il correspond à leur disponibilité sur ces cours.
             </div>
           </div>
+          <br>
+          <div class="row">
+            <div class="col-md-12">            
+              <img id="erreur" src="images/erreur.png"> : Cours ayant une erreur.      
+            </div> 
+          </div> 
         </div>              
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-md-12">            
-          <div id="color" class="carre"><a class="carre">cours</a></div>vfrggth
-        </div> 
-      </div> 
-      
+      </div>  
+       
       <div class="modal-footer">
         <div class="" id="infos">
           <div class="col-md-4 no-padding">MENTIONS LEGALES CGU</div>
