@@ -33,9 +33,29 @@ if(empty($_SESSION['login']))
   <body ng-controller="mainPageController">
 
       <ng-include src="'nav.php'"></ng-include> 
-      <div  class="col-md-7">
-        <div class="row" id="search">
-        </div>          
+      <div  class="col-md-7">        
+        <div class="row" id="searcharea">
+          <div  class="col-md-3">                       
+            <label><input id="intervenant" type="radio" name="groupe1" ng-model="groupe1"   value="intervenant" /> Intervenant </label>
+            <br>
+            <label><input id="salle" type="radio" name="groupe1" ng-model="groupe1"  value="salle" /> Salle </label>
+          </div>     
+          <div class="col-md-6">
+            <label> Recherche </label>
+            <br>
+            <div ng-show="groupe1 == 'intervenant'">
+              <input ng-model="search.teachersname" placeholder="rechercher par nom ...">
+            </div>
+            <div ng-show="groupe1 == 'salle'">
+              <input ng-model="search.sitename" placeholder="rechercher par salle...">
+            </div>        
+          </div> 
+          <div class="row">
+          <button type="button" class="btn btn-default no-bordure btn-lg" id="bRefresh"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>                  
+
+          <button type="button" class="btn btn-default" id="bMode">Salle</button>
+        </div>
+        </div>      
         <div class="row" id="salles"> 
           <ul id="onglets"></ul>      
         </div>
@@ -47,7 +67,43 @@ if(empty($_SESSION['login']))
         <div class="row" id="details">
           Veuillez séléctionner un lieu pour voir le détail (nom, adresse, ...)
         </div>
+        <div class="row" id="list">
+        <label>liste</label>
+
+
+        <div ng-show="groupe1 == 'intervenant'">
+        <div class ="list" ng-repeat="intervenant in intervenants | orderBy:predicate:reverse | filter:search | filter:firstLetterFilter | limitTo: 5" > 
+          <div class="row">
+            <div class="col-md-4">
+              <div class="name" ng-class="red:search.teachersname">{{intervenant.name}}
+              </div>
+            </div>
+            <div>
+              <div class="col-md-4">
+                <div class="secondname" >{{intervenant.secondname}}
+                </div>
+              </div>
+              <div class="col-md-4">
+                <button> Valider intervenant
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div ng-show="groupe1 == 'salle'">
+          <div class ="list" ng-repeat="salle in salles | orderBy:predicate:reverse | filter:search | filter:firstLetterFilter | limitTo: 5" >
+            <div class="name" >{{salle.firstname}}
+            </div>
+            <div class="adresss" ng-class="red:searchsitename" >{{salle.second}}
+            </div>
+            <button> Valider salle
+            </button>
+          </div>
+        </div>
+      </div>
         <div class="row" id="indic">
+          <label>indic</label>
         </div>
       </div>
     

@@ -7,6 +7,7 @@
 	//Insérer les salles : table SALLE
 		//Chemin JSON pour récupérer les salles
 		$chemin= getcwd ();
+
 		//echo $chemin;
 		$json_resolution = file_get_contents("./planningResoluV2.json");
 		$parsed_json_resolution = json_decode($json_resolution);
@@ -35,7 +36,6 @@
 				//$c_users = $parsed_json_resolution[$cpt]->{'user'};
 				$c_ID = $j_planning->{'class_id'};
 				$c_date = $j_planning->{'class_date'};
-				echo $c_date ."    ";
 				$c_day = $j_planning->{'class_dayofweek'};
 				$c_start = $j_planning->{'class_starttime'}.":00";
 				$c_duration = $j_planning->{'class_duration'};
