@@ -3,9 +3,9 @@
 		"user":
 			{
 				"id":7,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"p.dupont@live.com",
+				"name":"Dupont",
+				"firstname":"Pierre",
 				"intensity":[
 					30,
 					20,
@@ -69,9 +69,9 @@
 		"user":
 			{
 				"id":8,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"bob.leponge@live.com",
+				"name":"Leponge",
+				"firstname":"Bob",
 				"intensity":[
 					30,
 					20,
@@ -159,9 +159,9 @@
 		"user":
 			{
 				"id":12,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"p.seastar@ocean.com",
+				"name":"Seestar",
+				"firstname":"Patrick",
 				"intensity":[
 					30,
 					20
@@ -227,9 +227,9 @@
 		"user":
 			{
 				"id":14,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"c.calamr@ocean.com",
+				"name":"Calamar",
+				"firstname":"Carlos",
 				"intensity":[
 					30,
 					20
@@ -297,9 +297,9 @@
 		"user":
 			{
 				"id":15,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"j.doeauf@live.com",
+				"name":"Doeuf",
+				"firstname":"John",
 				"intensity":[
 					30,
 					20
@@ -360,9 +360,9 @@
 		"user":
 			{
 				"id":17,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"o.fice@live.com",
+				"name":"Fice",
+				"firstname":"Oris",
 				"intensity":[
 					30,
 					20,
@@ -449,9 +449,9 @@
 		"user":
 			{
 				"id":10,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"a.javel@live.com",
+				"name":"Javel",
+				"firstname":"Aude",
 				"intensity":[
 					30,
 					20,
@@ -513,9 +513,9 @@
 		"user":
 			{
 				"id":18,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"h.cot@vdfnln.com",
+				"name":"Cot",
+				"firstname":"Harry",
 				"intensity":[
 					30,
 					20,
@@ -571,9 +571,9 @@
 		"user":
 			{
 				"id":19,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"b.dylan@vdfnln.com",
+				"name":"Dylan",
+				"firstname":"Bob",
 				"intensity":[
 					30,
 					96,
@@ -584,7 +584,7 @@
 			}
 		,
 	
-		"weeks":[
+		weeks":[
 			{
 				"numberWeek":10,
 				"availabilities":[
@@ -628,9 +628,9 @@
 		"user":
 			{
 				"id":20,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"jlennon@vdfnln.com",
+				"name":"Lenon",
+				"firstname":"John",
 				"intensity":[
 					30
 				],
@@ -696,9 +696,9 @@
 		"user":
 			{
 				"id":24,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"gtard@vdfnln.com",
+				"name":"Tard",
+				"firstname":"Guy",
 				"intensity":[
 					30
 				],
@@ -751,9 +751,9 @@
 		"user":
 			{
 				"id":27,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"jouzi@vdfnln.com",
+				"name":"Ouzi",
+				"firstname":"Jacques",
 				"intensity":[
 				],
 				"staff_is_teacher":false,
@@ -836,9 +836,9 @@
 		"user":
 			{
 				"id":28,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"jniche@vdfnln.com",
+				"name":"Niche",
+				"firstname":"Jessica",
 				"intensity":[
 				],
 				"staff_is_teacher":false,
@@ -910,9 +910,9 @@
 		"user":
 			{
 				"id":30,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"jpetipeu@vdfnln.com",
+				"name":"Petipeu",
+				"firstname":"Justin",
 				"intensity":[
 				],
 				"staff_is_teacher":false,
@@ -983,9 +983,9 @@
 		"user":
 			{
 				"id":31,
-				"mail":"dsfg@vdfnln.com",
-				"name":"fssfsf",
-				"firstname":"frfezfze",
+				"mail":"ldulac@vdfnln.com",
+				"name":"Dulac",
+				"firstname":"Louis",
 				"intensity":[
 				],
 				"staff_is_teacher":false,
