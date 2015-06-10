@@ -41,7 +41,9 @@
 				
 				
 			//Insertion dans la BDD	
-				$sql ="INSERT INTO salle (salle_ID, salle_nom, salle_adresse, salle_cp, salle_ville, salle_pays, salle_lat, salle_lon, salle_capacite) VALUES(".$s_ID." ,'".$s_nom."','".$s_adresse."', ".$s_cp.", '".$s_ville."', '".$s_pays."', ".$s_lat.", ".$s_lon.", ".$s_cap.")";
+				echo $s_cp."  ";
+				$sql ="INSERT INTO salle (salle_ID, salle_nom, salle_adresse, salle_cp, salle_ville, salle_pays, salle_lat, salle_lon, salle_capacite) 
+				VALUES(".$s_ID." ,'".$s_nom."','".$s_adresse."', ".$s_cp.", '".$s_ville."', '".$s_pays."', ".$s_lat.", ".$s_lon.", ".$s_cap.")";
 				$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 				unset($sql, $insertion, $s_ID, $s_nom, $s_adresse, $s_cp, $s_ville, $s_pays, $s_lat, $s_lon, $s_cap);
 
