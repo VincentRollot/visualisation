@@ -20,7 +20,7 @@ if(empty($_SESSION['login']))
   <link rel="stylesheet" type="text/css" href="libs/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="libs/jquery-ui.min.css" /> 
   <link rel="stylesheet" type="text/css" href="libs/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/customDetail.css" />
+  <link rel="stylesheet" type="text/css" href="css/customDetailCours.css" />
 </head>
 
   <body ng-controller = "mainPageController">
