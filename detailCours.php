@@ -23,22 +23,55 @@ if(empty($_SESSION['login']))
   <link rel="stylesheet" type="text/css" href="css/customDetail.css" />
 </head>
 
-  <body>
+  <body ng-controller = "mainPageController">
 
     <?php
 
+    require 'connexion.php';
+
     $cours = $_GET['cours'];
+
     $zone = "zone";
     $ville = "ville";
     $salle = "salle";
-    $debut = "début";
-    $duree = "durée";
-    $intensite = "intensite";
+
+    $sql_debut = "SELECT cours_heuredebut, cours_duree, cours_type, cours_nb_prof, cours_nb_hote FROM cours WHERE cours_ID = '".$cours."'";
+    $debut_req = mysqli_query($bdd, $sql_debut) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+    $debut_db = mysqli_fetch_assoc($debut_req);
+
+    $debut = $debut_db['cours_heuredebut'];
+    $duree = $debut_db['cours_duree'];
+
+    $intensite_nb = $debut_db['cours_type'];
+    $sql_intensite = "SELECT description FROM intensite WHERE class_level = '".$intensite_nb."'";
+    $intensite_req = mysqli_query($bdd, $sql_intensite) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+    $intensite_db = mysqli_fetch_assoc($intensite_req);
+
+    $intensite = $intensite_db['description'];
     $capacite = "capacite";
-    $animateur = "animateur";
-    $nb_animateur = "animateur";
+
+
+    $sql_animateur = "SELECT id_intervenant FROM cours_intervenant WHERE id_cours = '".$cours."' AND is_teacher = '1'";
+    $animateur_req = mysqli_query($bdd, $sql_animateur) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+    $count = mysqli_num_rows($animateur_req);
+
+    $i = 0;
+    while($i < $count){
+      $animateur_db = mysqli_fetch_assoc($animateur_req);
+      $animateur_nb[$i] = $animateur_db['id_intervenant'];
+      $sql_animateur_id = "SELECT int_nom, int_prenom FROM intervenant WHERE int_ID_intervenant = '".$animateur_nb[$i]."'";
+      $animateur_id_req = mysqli_query($bdd, $sql_animateur_id) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+      $animateur_id_db = mysqli_fetch_assoc($animateur_id_req);
+      $animateur[$i] = $animateur_id_db['int_nom']." ".$animateur_id_db['int_prenom'];
+      $i = $i + 1;
+    }
+    
+
+    
+
+    $nb_animateur = $debut_db['cours_nb_prof'];
     $nb_animateur_possible = "animateur possible";
-    $nb_hote = "animateur";
+    $nb_hote = $debut_db['cours_nb_hote'];
     $nb_hote_possible = "hote possible";
     $formation = "oui";
 
@@ -63,7 +96,18 @@ if(empty($_SESSION['login']))
           </div>
           <div class="col-md-6" id = "colonne_droite">
             <div class="sous-titreDetail">Informations intervenant :</div>
-            Animateur : <?php echo $animateur; ?>
+            Animateur : 
+            <?php   
+            $i = 0;
+            while($i < $count){
+              ?>
+              <a href="detailIntervenant.php?intervenant=<?php print $animateur_nb[$i]; ?>"><?php echo $animateur[$i]; ?></a>
+              <?php
+              if($i < ($count - 1)){
+                echo ", ";
+              }
+              $i = $i + 1;
+            } ?>
 
             <div class="sous-titreDetail">Rappel indicateur :</div>
             <div>
