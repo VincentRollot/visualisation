@@ -94,7 +94,13 @@
           <br>
           <div class="row">
             <div class="col-md-12">            
-              <img id="erreur" src="images/erreur.png"> : Cours ayant une erreur.      
+              <img id="erreur" src="images/erreur.png"> : Cours ayant une erreur.     
+            </div> 
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-12">            
+              <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Refresh : recharger les données de la page
             </div> 
           </div> 
         </div>              

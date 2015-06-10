@@ -10,6 +10,46 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   $scope.infos = null;
   $scope.nb = null;
   $scope.nom = null;
+  $scope.mode = 0;
+/*
+  var changerMode = function (){
+    if($scope.mode = 0){
+      $('#bMode').html("Intervenant");
+      $scope.mode = 1;
+    }
+    else{
+      $('#bMode').html("Salle");
+      $scope.mode = 0;
+    }
+
+  }*/
+  document.getElementById("bMode").onclick = function() {changerMode()};
+
+  function changerMode() {
+    if($scope.mode == 0){
+      document.getElementById("bMode").innerHTML = "Intervenant";
+      $scope.mode = 1;
+      alert("Vous êtes passé en mode intervenant. (en cours de développement)");
+    }
+    else{
+      document.getElementById("bMode").innerHTML = "Salle";
+      $scope.mode = 0;
+      alert("Vous êtes passé en mode salle.");
+    }
+  }
+
+  document.getElementById("bRefresh").onclick = function() {refresh()};
+
+  function refresh() {
+      alert("(en cours de développement)");
+  }
+/*
+  document.getElementById("bMode").onclick = function() {changerMode()};
+
+function changerMode() {
+
+    document.getElementById("bMode").innerHTML = "coucou";
+}*/
   
   $('#jstree').on('changed.jstree', function (e, data) {
     if(data && data.selected && data.selected.length) {
