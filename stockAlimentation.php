@@ -1,6 +1,7 @@
 <?php
 	//echo "Ouverture de stock_BDD.php<br/>";
 	//Connexion à la BDD
+echo "Ouverture de stockAlimentation.php<br/>";
 		require 'connexion.php';
 	
 	
@@ -12,21 +13,7 @@
 		$parsed_json_alimentation = json_decode($json_alimentation);
 		
 		//On supprime les enregistrements de la table
-		mysqli_query($bdd, "DELETE FROM disponibilite") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
-		mysqli_query($bdd, "DELETE FROM disponibilite_salle") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
-		mysqli_query($bdd, "DELETE FROM intervenant") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
-		mysqli_query($bdd, "DELETE FROM intensite_intervenant") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
-		mysqli_query($bdd, "DELETE FROM intervenant_disponibilite_semaine") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 		
-		//On remet la BDD à 0
-		$sql_zero = "ALTER TABLE disponibilite AUTO_INCREMENT=0";
-		mysqli_query($bdd, $sql_zero) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
-		$sql_un = "ALTER TABLE disponibilite_salle AUTO_INCREMENT=0";
-		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
-		$sql_un = "ALTER TABLE intensite_intervenant AUTO_INCREMENT=0";
-		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
-		$sql_un = "ALTER TABLE intervenant_disponibilite_semaine AUTO_INCREMENT=0";
-		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 		
 		unset ($sql_zero,$sql_un);
 		$cpt = 0 ;

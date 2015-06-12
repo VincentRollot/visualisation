@@ -1,6 +1,7 @@
 <?php
 	//echo "Ouverture de stock_BDD.php<br/>";
 	//Connexion à la BDD
+	echo "Ouverture de stockResolution.php<br/>";
 		require 'connexion.php';
 	
 	
@@ -13,13 +14,7 @@
 		$parsed_json_resolution = json_decode($json_resolution);
 		
 		//On supprime les enregistrements de la table
-		mysqli_query($bdd, "DELETE FROM cours") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
-		mysqli_query($bdd, "DELETE FROM cours_intervenant") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 		
-		//On remet la BDD à 0
-		
-		$sql_un = "ALTER TABLE cours_intervenant AUTO_INCREMENT=0";
-		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 		
 		unset ($sql_zero,$sql_un);
 		$cpt = 1 ;

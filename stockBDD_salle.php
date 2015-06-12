@@ -9,11 +9,7 @@
 		$parsed_json_salle = json_decode($json_salle);
 		
 		//On supprime les enregistrements de la table
-		mysqli_query($bdd, "DELETE FROM salle") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 		
-		//On remet la BDD à 0
-		$sql_zero = "ALTER TABLE salle AUTO_INCREMENT=0";
-		mysqli_query($bdd, $sql_zero) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 		
 		unset ($sql_zero);
 		$cpt = 1 ;
@@ -41,7 +37,7 @@
 				
 				
 			//Insertion dans la BDD	
-				echo $s_cp."  ";
+				
 				$sql ="INSERT INTO salle (salle_ID, salle_nom, salle_adresse, salle_cp, salle_ville, salle_pays, salle_lat, salle_lon, salle_capacite) 
 				VALUES(".$s_ID." ,'".$s_nom."','".$s_adresse."', ".$s_cp.", '".$s_ville."', '".$s_pays."', ".$s_lat.", ".$s_lon.", ".$s_cap.")";
 				$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
