@@ -1,21 +1,23 @@
 <?php
 	//echo "Ouverture de stock_BDD.php<br/>";
 	//Connexion à la BDD
-echo "Ouverture de stockAlimentation.php<br/>";
+		echo "Ouverture de stockAlimentation.php<br/>";
 		require 'connexion.php';
 	
 	
 	//Insérer les salles : table SALLE
 		//Chemin JSON pour récupérer les salles
 		$chemin= getcwd ();
+		
 		//echo $chemin;
 		$json_alimentation = file_get_contents("./AlimentationVF2.json");
 		$parsed_json_alimentation = json_decode($json_alimentation);
+		echo $parsed_json_alimentation;
 		
 		//On supprime les enregistrements de la table
 		
 		
-		unset ($sql_zero,$sql_un);
+		
 		$cpt = 0 ;
 		//echo $json_alimentation;	
 		//echo json_last_error();

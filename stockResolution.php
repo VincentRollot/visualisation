@@ -41,6 +41,7 @@
 				$c_teacher_list = $j_planning->{'teacher_list'};
 				$c_host_list = $j_planning->{'host_list'};
 				
+				
 				$sql = "INSERT INTO cours (cours_ID, cours_salle_ID, cours_type, cours_date, cours_joursemaine, cours_heuredebut, cours_duree, cours_nb_prof, cours_nb_hote) 
 				VALUES(".$c_ID." ,".$c_class_id." ,".intval($c_intensity)." ,'".$c_date."' ,".intval($c_day)." , '".$c_start."' , ".$c_duration." , ".$c_nb_teacher[0]." , ".$c_nb_teacher[1].")";				
 				
@@ -51,6 +52,8 @@
 				
 				for( $i=0; $i<count($c_teacher_list) ; $i++)
 				{
+					
+					
 					$sql = "INSERT INTO cours_intervenant (id_cours, id_intervenant, is_teacher) 
 					VALUES(".$c_ID." ,".intval($c_teacher_list[$i]).", 1)";				
 				//	echo $sql;
@@ -59,6 +62,7 @@
 				
 				for( $i=0; $i<count($c_host_list) ; $i++)
 				{
+					
 					$sql = "INSERT INTO cours_intervenant (id_cours, id_intervenant, is_teacher) 
 					VALUES(".$c_ID." ,".intval($c_host_list[$i]).", 0)";				
 				//	echo $sql;
