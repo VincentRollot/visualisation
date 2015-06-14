@@ -21,13 +21,13 @@ if((strcspn($login, '*/,') != strlen($login)) || (strcspn($password, '*/,') != s
 
 require 'connexion.php';
 
-$sql_login = "SELECT user_login FROM users";
+$sql_login = "SELECT user_login FROM user";
 $login_req = mysqli_query($bdd, $sql_login) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
 $login_db = mysqli_fetch_assoc($login_req);
 
 
 $i = 1;
-$sql = "SELECT COUNT( user_login ) FROM users";
+$sql = "SELECT COUNT( user_login ) FROM user";
 $nb_row= mysqli_query($bdd, $sql) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
 $count = mysqli_num_rows($login_req);
 
@@ -42,7 +42,7 @@ if($i == ($count+1)){
 }
 
 else{
-    $sql_id = "SELECT user_login, user_pwd FROM users WHERE user_ID = '".$i."'";
+    $sql_id = "SELECT user_login, user_pwd FROM user WHERE user_ID = '".$i."'";
     $id_req = mysqli_query($bdd, $sql_id) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
     $id_db = mysqli_fetch_assoc($id_req);
 
