@@ -16,14 +16,20 @@ if(empty($_SESSION['login']))
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gym Suédoise</title>
   <link rel="icon" type="image/gif" href="http://design.gymsuedoise.com/USER20150427/favicon.gif" /> <!-- favicon -->
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>-->
+  <script src='libs/jquery.min.js'></script>
   <link rel="stylesheet" type="text/css" href="libs/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="libs/jquery-ui.min.css" /> 
   <link rel="stylesheet" type="text/css" href="libs/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/customDetailCours.css" />
+  <link rel="stylesheet" type="text/css" href="css/customDetailCours.css" /> 
+  <link rel="stylesheet" type="text/css" href="css/customMainPage.css" /> 
+  <script src="libs/angular.min.js"></script>    
+  <script src="libs/jquery-ui.min.js"></script>
+  <script src="libs/bootstrap.min.js"></script>
+  <script src="js/jsDetails.js"></script>
 </head>
 
-  <body ng-controller = "mainPageController">
+  <body ng-controller = "detailsController">
 
     <?php
 
@@ -31,9 +37,29 @@ if(empty($_SESSION['login']))
 
     $cours = $_GET['cours'];
 
-    $zone = "zone";
-    $ville = "ville";
-    $salle = "salle";
+    $sql_salle_nb = "SELECT cours_salle_ID FROM cours WHERE cours_ID = '".$cours."'";
+    $salle_nb_req = mysqli_query($bdd, $sql_salle_nb) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+    $salle_nb_db = mysqli_fetch_assoc($salle_nb_req);
+
+    $sql_salle = "SELECT salle_nom, salle_adresse, salle_cp, salle_ville, salle_capacite FROM salle WHERE salle_ID = '".$salle_nb_db['cours_salle_ID']."'";
+    $salle_req = mysqli_query($bdd, $sql_salle) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+    $salle_db = mysqli_fetch_assoc($salle_req);
+    
+    $salle = $salle_db['salle_nom'];
+    $adresse = $salle_db['salle_adresse'];
+    $cp = $salle_db['salle_cp'];
+    $ville = $salle_db['salle_ville'];
+    $capacite = $salle_db['salle_capacite'];
+
+    $sql_zone_nb = "SELECT region_ID FROM region_salle WHERE salle_ID = '".$salle_nb_db['cours_salle_ID']."'";
+    $zone_nb_req = mysqli_query($bdd, $sql_zone_nb) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+    $zone_nb_db = mysqli_fetch_assoc($zone_nb_req);
+
+    $sql_zone = "SELECT region_nom FROM region WHERE region_ID = '".$zone_nb_db['region_ID']."'";
+    $zone_req = mysqli_query($bdd, $sql_zone) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+    $zone_db = mysqli_fetch_assoc($zone_req);
+
+    $zone = $zone_db['region_nom'];
 
     $sql_debut = "SELECT cours_heuredebut, cours_duree, cours_type, cours_nb_prof, cours_nb_hote FROM cours WHERE cours_ID = '".$cours."'";
     $debut_req = mysqli_query($bdd, $sql_debut) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
@@ -48,7 +74,7 @@ if(empty($_SESSION['login']))
     $intensite_db = mysqli_fetch_assoc($intensite_req);
 
     $intensite = $intensite_db['description'];
-    $capacite = "capacite";
+
 
 
     $sql_animateur = "SELECT id_intervenant FROM cours_intervenant WHERE id_cours = '".$cours."' AND is_teacher = '1'";
@@ -65,8 +91,6 @@ if(empty($_SESSION['login']))
       $animateur[$i] = $animateur_id_db['int_nom']." ".$animateur_id_db['int_prenom'];
       $i = $i + 1;
     }
-    
-
     
 
     $nb_animateur = $debut_db['cours_nb_prof'];
@@ -86,12 +110,12 @@ if(empty($_SESSION['login']))
             <div class="sous-titreDetail">Informations générales :</div>
             <div>
                 <p>Zone : <?php echo $zone; ?></p>
-                <p>Ville : <?php echo $ville; ?></p>
+                <p>Adresse : <?php echo $adresse; ?> <?php echo $cp; ?> <?php echo $ville; ?></p>
                 <p>Salle : <?php echo $salle; ?></p>
                 <p>Heure de début : <?php echo $debut; ?></p>
                 <p>Durée : <?php echo $duree; ?></p>
                 <p>Intensité : <?php echo $intensite; ?></p>
-                <p>Capacité du cours : <?php echo $capacite; ?></p>
+                <p>Capacité du cours : <?php echo $capacite; ?> personnes</p>
             </div>
           </div>
           <div class="col-md-6" id = "colonne_droite">
@@ -101,7 +125,7 @@ if(empty($_SESSION['login']))
             $i = 0;
             while($i < $count){
               ?>
-              <a href="detailIntervenant.php?intervenant=<?php print $animateur_nb[$i]; ?>"><?php echo $animateur[$i]; ?></a>
+              <a href="mainPage.php?intervenant=<?php print $animateur_nb[$i]; ?>"><?php echo $animateur[$i]; ?></a>
               <?php
               if($i < ($count - 1)){
                 echo ", ";
@@ -121,13 +145,20 @@ if(empty($_SESSION['login']))
         </div>
       </div>
     </div>
-    <ng-include src="'legende.php'"></ng-include>
-    <ng-include src="'footer.php'"></ng-include>   
+    <footer>
+      <div class="col-md-12" id="infos">
+            <div class="col-md-2 no-padding">MENTIONS LEGALES CGU</div>
+            <div class="col-md-2 no-padding">Modification : JJ/MM/AAAA</div>
+            <div class="col-md-3 no-padding">Copyright 1993-2015 La Gym Suédoise</div>
+            <div class="col-md-2 no-padding">Mise à jour : JJ/MM/AAAA</div>
+            <div class="col-md-1 no-padding" id="divLegende" ng-click="showModal();">
+              <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Légende
+            </div>
+            <div class="col-md-1 no-padding">
+                <a class ='logout' href='logout.php'>Se déconnecter</a>
+            </div>
+            <div class="col-md-1 no-padding"><img id="logo" src="images/logo.png"></div>
+        </div>
+    </footer>  
   </body>
-
-<script src="libs/jquery-2.1.3.min.js"></script>
-<script src="libs/angular.min.js"></script>    
-<script src="libs/jquery-ui.min.js"></script>
-<script src="libs/bootstrap.min.js"></script>
-<script src="js/jsMainPage.js"></script>
 </html>

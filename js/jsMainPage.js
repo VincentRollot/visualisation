@@ -4,52 +4,95 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   $scope.showModal = function(){
     $("#legende").modal('show');
   }
+  $scope.error = false;
 
   $scope.salle = null;
+  $scope.intervenant = null;
   $scope.json = null;
   $scope.infos = null;
   $scope.nb = null;
   $scope.nom = null;
+  $scope.typeplanning = null;
   $scope.mode = 0;
-/*
-  var changerMode = function (){
-    if($scope.mode = 0){
-      $('#bMode').html("Intervenant");
-      $scope.mode = 1;
-    }
-    else{
-      $('#bMode').html("Salle");
-      $scope.mode = 0;
-    }
+  $scope.rsalles=[];
+  $scope.limit = 7;
+  $scope.rintervenants = [];
 
-  }*/
-  document.getElementById("bMode").onclick = function() {changerMode()};
 
-  function changerMode() {
-    if($scope.mode == 0){
-      document.getElementById("bMode").innerHTML = "Intervenant";
-      $scope.mode = 1;
-      alert("Vous êtes passé en mode intervenant. (en cours de développement)");
+$( document ).ready(function() {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == "intervenant") 
+        {
+          $scope.typeplanning = 1;
+          $scope.intervenant = sParameterName[1];
+          chargerDonneesIntervenant();
+          afficherDetailsIntervenant();
+        }
     }
-    else{
-      document.getElementById("bMode").innerHTML = "Salle";
-      $scope.mode = 0;
-      alert("Vous êtes passé en mode salle.");
-    }
+});
+
+
+  $scope.submitSalle = function(salle_ID){
+    var r = [];
+    $scope.typeplanning = 0;
+
+    chargerDonneesSalle(salle_ID);
+    afficherDetailsSalle(salle_ID, r);
+    afficherOnglets(105, salle_ID);
   }
+
+  $scope.submitIntervenant = function(int_ID_intervenant){
+    $scope.typeplanning = 1;
+    $scope.intervenant = int_ID_intervenant;
+    var nom_intervenant = $(this).attr("id");
+    chargerDonneesIntervenant();
+    afficherDetailsIntervenant();
+  }
+
 
   document.getElementById("bRefresh").onclick = function() {refresh()};
 
   function refresh() {
       alert("(en cours de développement)");
   }
-/*
-  document.getElementById("bMode").onclick = function() {changerMode()};
 
-function changerMode() {
 
-    document.getElementById("bMode").innerHTML = "coucou";
-}*/
+ function getSalles(){
+    $http.get('encode_salle.php')
+      .success(function(data, status){
+        $scope.rsalles = data;
+        
+      })
+      .error(function(data, status){
+        $scope.rsalles = data;
+        $scope.status = status;
+        $scope.error = true;
+        alert('Erreur');        
+      })
+  }
+  getSalles();
+
+  function getIntervenant(){
+    $http.get('encode_intervenant.php')
+      .success(function(data, status){
+         $scope.rintervenants = data;
+                
+      })
+      .error(function(data, status){
+        $scope.rintervenants = data;
+        $scope.status = status;
+        $scope.error = true;
+        alert('Erreur');        
+      })
+
+  }
+  getIntervenant();
+
+
   
   $('#jstree').on('changed.jstree', function (e, data) {
     if(data && data.selected && data.selected.length) {
@@ -57,32 +100,38 @@ function changerMode() {
       var r = [];
       var salle_selected;
       var parent_id;
+      $scope.typeplanning = 0;
+
       for(i = 0, j = data.selected.length; i < j; i++) {
         r.push(data.instance.get_node(data.selected[i]).text);
         salle_selected = data.instance.get_node(data.selected[i]).text;
         parent_id = data.instance.get_node(data.selected[i]).parent;
       }
 
-      chargerDonnees(salle_selected);
-      afficherDetails(salle_selected, r);
+
       afficherOnglets(parent_id, salle_selected);
+      chargerDonneesSalle(salle_selected);
+      afficherDetailsSalle(salle_selected, r);
+      
     }
   });
 
+
   $("#onglets").on('click', 'li.onglet', function (event) {
     var r = [];
+    $scope.typeplanning = 0;
     var salle_selected = $(this).attr("id");
 
     $(".active").attr("class", "onglet");
     $(this).attr("class", "active onglet");
 
-    chargerDonnees(salle_selected);
-    afficherDetails(salle_selected, r);
+    chargerDonneesSalle(salle_selected);
+    afficherDetailsSalle(salle_selected, r);
   });
 
 
 
-  var chargerDonnees = function(salle_selected){
+  var chargerDonneesSalle = function(salle_selected){
     $http.get('content.php'). //    /GitHub/visualisation/content.php
       success(function(data, status, headers, config) {
         $http.get('recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
@@ -101,8 +150,20 @@ function changerMode() {
     });
   }
 
+  var chargerDonneesIntervenant = function(){
+    $http.get('content.php'). //    /GitHub/visualisation/content.php
+      success(function(data, status, headers, config) {
+        $scope.json = data;
+        displayPlanning(); 
+      }).
+      error(function(data, status, headers, config) {
+        console.log('ca marche pas');
+    });
+  }
 
-  var afficherDetails = function(salle_selected, r){
+
+
+  var afficherDetailsSalle = function(salle_selected, r){
     $('#details').html('Lieu : <br/>' + r.join(', '));
     $http.get('recuperer_info_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
       success(function(info, status, headers, config) {
@@ -114,6 +175,10 @@ function changerMode() {
       error(function(info, status, headers, config) {
         console.log('infos salle ca marche pas');
     });  
+  }
+
+  var afficherDetailsIntervenant = function(salle_selected, r){
+          $('#details').html("Il faut faire le script");
   }
 
   var afficherOnglets = function(parent_id, salle_selected){
@@ -150,8 +215,8 @@ function changerMode() {
               }
               var salle_selected = $(".active").attr("id");
               var r = [];
-              chargerDonnees(salle_selected);
-              afficherDetails(salle_selected, r);
+              chargerDonneesSalle(salle_selected);
+              afficherDetailsSalle(salle_selected, r);
             }).
             error(function(nom, status, headers, config) {
               console.log('ca marche pas');
@@ -190,29 +255,96 @@ function changerMode() {
     }
     else{
 
-      if($scope.json[count].classroom_id == $scope.salle){
+      if($scope.typeplanning == 0){
+        if($scope.json[count].classroom_id == $scope.salle){
 
-        id_class.push("Cours n°"+$scope.json[count].class_id);
-        start_time.push($scope.json[count].class_date+'T'+$scope.json[count].class_starttime+':00');
+          id_class.push("Cours n°"+$scope.json[count].class_id);
+          start_time.push($scope.json[count].class_date+'T'+$scope.json[count].class_starttime+':00');
 
 
-        var duration = $scope.json[count].class_duration;
-        var start = $scope.json[count].class_starttime;
-        minute = start.substr(3,5);
-        hour = start.substr(0,2);
-        minute = parseInt(minute);
-        hour = parseInt(hour);
-        duration = parseInt(duration);
+          var duration = $scope.json[count].class_duration;
+          var start = $scope.json[count].class_starttime;
+          minute = start.substr(3,5);
+          hour = start.substr(0,2);
+          minute = parseInt(minute);
+          hour = parseInt(hour);
+          duration = parseInt(duration);
 
-        var total_minutes = (60*hour) + minute + duration;
-        var hour_end = Math.floor(total_minutes / 60);
-        var minute_end = total_minutes % 60;
+          var total_minutes = (60*hour) + minute + duration;
+          var hour_end = Math.floor(total_minutes / 60);
+          var minute_end = total_minutes % 60;
 
-        if (minute_end == 0) {
-          minute_end = minute_end+'0';
+          if (minute_end == 0) {
+            minute_end = minute_end+'0';
+          }
+
+          end_time.push($scope.json[count].class_date+'T'+hour_end+':'+minute_end+':00');
+        }
+      }
+
+      else if($scope.typeplanning == 1){
+        var nb_intervenant = $scope.json[count].teacher_list.length;
+        var count_inter = 0;
+        var nb_hote = $scope.json[count].host_list.length;
+        var count_hote = 0;
+
+        while(count_inter < nb_intervenant){
+
+          if($scope.json[count].teacher_list[count_inter] == $scope.intervenant){
+
+            id_class.push("Cours n°"+$scope.json[count].class_id);
+            start_time.push($scope.json[count].class_date+'T'+$scope.json[count].class_starttime+':00');
+
+
+            var duration = $scope.json[count].class_duration;
+            var start = $scope.json[count].class_starttime;
+            minute = start.substr(3,5);
+            hour = start.substr(0,2);
+            minute = parseInt(minute);
+            hour = parseInt(hour);
+            duration = parseInt(duration);
+
+            var total_minutes = (60*hour) + minute + duration;
+            var hour_end = Math.floor(total_minutes / 60);
+            var minute_end = total_minutes % 60;
+
+            if (minute_end == 0) {
+              minute_end = minute_end+'0';
+            }
+
+            end_time.push($scope.json[count].class_date+'T'+hour_end+':'+minute_end+':00');
+          }
+          count_inter = count_inter + 1;
         }
 
-        end_time.push($scope.json[count].class_date+'T'+hour_end+':'+minute_end+':00');
+        while(count_hote < nb_hote){
+
+          if($scope.json[count].host_list[count_hote] == $scope.intervenant){
+
+            id_class.push("Cours n°"+$scope.json[count].class_id);
+            start_time.push($scope.json[count].class_date+'T'+$scope.json[count].class_starttime+':00');
+
+
+            var duration = $scope.json[count].class_duration;
+            var start = $scope.json[count].class_starttime;
+            minute = start.substr(3,5);
+            hour = start.substr(0,2);
+            minute = parseInt(minute);
+            hour = parseInt(hour);
+            duration = parseInt(duration);
+
+            var total_minutes = (60*hour) + minute + duration;
+            var hour_end = Math.floor(total_minutes / 60);
+            var minute_end = total_minutes % 60;
+
+            if (minute_end == 0) {
+              minute_end = minute_end+'0';
+            }
+
+            end_time.push($scope.json[count].class_date+'T'+hour_end+':'+minute_end+':00');
+          }
+          count_hote = count_hote + 1;
+        }
       }
 
         compt = compt + 1;
@@ -250,7 +382,10 @@ function changerMode() {
         element.attr('href', 'javascript:void(0);');
         element.click(function() {  
         var cours = event.title.substr(8,9);
-        window.open("detailCours.php?cours="+cours,"_self"); // ../visualisation/detailCours.php
+
+        $('#indic').html("Ici il y a les indicateurs");
+        var r = $('<a class="btn btn-default" href="detailCours.php?cours='+cours+'" role="button">Détails Cours</a>');
+        $("#indic").append(r);
         });
       },
     lang : 'fr',
@@ -261,7 +396,7 @@ function changerMode() {
     defaultView : 'agendaWeek',
     handleWindowResize : true,
     slotDuration : '00:30:00',
-    aspectRatio: 1.69,
+    aspectRatio: 1.59,
     defaultDate: '2015-03-02',
     editable: true,
     eventLimit: true,
