@@ -12,7 +12,6 @@
 		//echo $chemin;
 		$json_alimentation = file_get_contents("./AlimentationVF2.json");
 		$parsed_json_alimentation = json_decode($json_alimentation);
-		echo $parsed_json_alimentation;
 		
 		//On supprime les enregistrements de la table
 		
