@@ -1,5 +1,5 @@
 <?php
-	echo "Ouverture de stock_BDD.php<br/>";
+	echo "Ouverture de stock_BDD_region.php<br/>";
 	//Connexion à la BDD
 		require 'connexion.php';	
 	
@@ -9,8 +9,7 @@
 		$parsed_json_region = json_decode($json_region);
 		
 		//On supprime les enregistrements de la table
-		mysqli_query($bdd, "DELETE FROM region") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
-		mysqli_query($bdd, "DELETE FROM region_salle") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
+		
 		
 		//On remet la BDD à 0
 		$sql_zero = "ALTER TABLE region_salle AUTO_INCREMENT=0";
@@ -50,9 +49,7 @@
 				
 				if (($r_ID != -1)&&($r_ID != 60)&&($r_ID != 53)){
 					foreach ($r_liste_salle as $r_salle){
-						echo $r_salle;
-
-						echo '<br/>';
+						
 						$sql_region = "INSERT INTO region_salle (salle_ID, region_ID) VALUES(".$r_salle.", ".$r_ID.")";
 						$insertion = mysqli_query($bdd, $sql_region) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 					}

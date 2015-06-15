@@ -22,13 +22,13 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-03",
+					"availability_date":"2015-03-02",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"16:00",
 					"availability_duration":150
@@ -43,13 +43,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"16:00",
 					"availability_duration":150
@@ -87,25 +87,25 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-03",
+					"availability_date":"2015-03-02",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"13:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"17:15",
 					"availability_duration":60
@@ -121,25 +121,25 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-11",
+					"availability_date":"2015-03-10",
 					"availability_dayofweek":"1",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"13:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"12:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"17:15",
 					"availability_duration":60
@@ -176,19 +176,19 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-03",
+					"availability_date":"2015-03-02",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"13:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
@@ -203,13 +203,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"13:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"09:30",
 					"availability_duration":90
@@ -244,13 +244,13 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-03",
+					"availability_date":"2015-03-02",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"14:00",
 					"availability_duration":240
@@ -265,19 +265,19 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"17:30",
 					"availability_duration":60
@@ -314,19 +314,19 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"10:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"15:45",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
@@ -341,7 +341,7 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"17:00",
 					"availability_duration":60
@@ -378,19 +378,19 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"12:15",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"12:15",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-09",
+					"availability_date":"2015-03-08",
 					"availability_dayofweek":"6",
 					"availability_starttime":"12:30",
 					"availability_duration":60
@@ -405,31 +405,31 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"17:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"10:00",
 					"availability_duration":150
 				},
 				{
-					"availability_date":"2014-03-14",
+					"availability_date":"2015-03-13",
 					"availability_dayofweek":"4",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"17:30",
 					"availability_duration":60
@@ -467,13 +467,13 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"12:15",
 					"availability_duration":60
@@ -488,13 +488,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-14",
+					"availability_date":"2015-03-13",
 					"availability_dayofweek":"5",
 					"availability_starttime":"17:30",
 					"availability_duration":60
@@ -531,7 +531,7 @@
 				"numberWeek":10,
 				"availabilities":[
 				{	
-					"availability_date":"2014-03-09",
+					"availability_date":"2015-03-08",
 					"availability_dayofweek":"6",
 					"availability_starttime":"12:30",
 					"availability_duration":60
@@ -546,13 +546,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{	
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"14:00",
 					"availability_duration":60
 				},
 				{	
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"10:15",
 					"availability_duration":120
@@ -584,12 +584,12 @@
 			}
 		,
 	
-		weeks":[
+		"weeks":[
 			{
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"16:30",
 					"availability_duration":120
@@ -604,13 +604,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"16:30",
 					"availability_duration":120
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"09:45",
 					"availability_duration":60
@@ -644,13 +644,13 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-07",
+					"availability_date":"2015-03-06",
 					"availability_dayofweek":"4",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"12:15",
 					"availability_duration":60
@@ -665,19 +665,19 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-14",
+					"availability_date":"2015-03-13",
 					"availability_dayofweek":"4",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-14",
+					"availability_date":"2015-03-13",
 					"availability_dayofweek":"4",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:30",
 					"availability_duration":60
@@ -712,7 +712,7 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-07",
+					"availability_date":"2015-03-06",
 					"availability_dayofweek":"4",
 					"availability_starttime":"17:30",
 					"availability_duration":60
@@ -727,13 +727,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-14",
+					"availability_date":"2015-03-13",
 					"availability_dayofweek":"4",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"14:30",
 					"availability_duration":60
@@ -766,25 +766,25 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-03",
+					"availability_date":"2015-03-02",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"09:30",
 					"availability_duration":120
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"16:00",
 					"availability_duration":60
@@ -799,25 +799,25 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"16:00",
 					"availability_duration":60
@@ -851,19 +851,19 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-03",
+					"availability_date":"2015-03-02",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"17:15",
 					"availability_duration":60
@@ -878,19 +878,19 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"17:15",
 					"availability_duration":60
@@ -925,19 +925,19 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"14:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"16:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"17:15",
 					"availability_duration":60
@@ -952,19 +952,19 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"14:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"16:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"17:15",
 					"availability_duration":60
@@ -998,19 +998,19 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-04",
+					"availability_date":"2015-03-03",
 					"availability_dayofweek":"1",
 					"availability_starttime":"16:45",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"13:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"09:00",
 					"availability_duration":120
@@ -1025,13 +1025,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-11",
+					"availability_date":"2015-03-10",
 					"availability_dayofweek":"1",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"09:30",
 					"availability_duration":240
@@ -1065,25 +1065,25 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-03",
+					"availability_date":"2015-03-02",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-04",
+					"availability_date":"2015-03-03",
 					"availability_dayofweek":"1",
 					"availability_starttime":"16:45",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"13:30",
 					"availability_duration":120
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
@@ -1098,19 +1098,19 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"13:30",
 					"availability_duration":180
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"12:00",
 					"availability_duration":60
@@ -1144,19 +1144,19 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-03",
+					"availability_date":"2015-03-02",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"13:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"09:00",
 					"availability_duration":60
@@ -1171,25 +1171,25 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"13:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"12:00",
 					"availability_duration":120
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"09:30",
 					"availability_duration":60
@@ -1224,13 +1224,13 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
@@ -1245,13 +1245,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
@@ -1285,13 +1285,13 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"12:15",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
@@ -1334,13 +1334,13 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"09:30",
 					"availability_duration":120
 				},
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:00",
 					"availability_duration":60
@@ -1355,13 +1355,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-10",
+					"availability_date":"2015-03-09",
 					"availability_dayofweek":"0",
 					"availability_starttime":"17:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:30",
 					"availability_duration":60
@@ -1395,7 +1395,7 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"15:30",
 					"availability_duration":150
@@ -1410,7 +1410,7 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:30",
 					"availability_duration":60
@@ -1444,13 +1444,13 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"10:00",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-09",
+					"availability_date":"2015-03-08",
 					"availability_dayofweek":"6",
 					"availability_starttime":"12:30",
 					"availability_duration":60
@@ -1493,13 +1493,13 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"12:15",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-09",
+					"availability_date":"2015-03-08",
 					"availability_dayofweek":"6",
 					"availability_starttime":"12:30",
 					"availability_duration":60
@@ -1514,13 +1514,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"10:15",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-14",
+					"availability_date":"2015-03-13",
 					"availability_dayofweek":"4",
 					"availability_starttime":"17:30",
 					"availability_duration":60
@@ -1553,19 +1553,19 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"16:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-07",
+					"availability_date":"2015-03-06",
 					"availability_dayofweek":"4",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"11:00",
 					"availability_duration":150
@@ -1580,19 +1580,19 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"4",
 					"availability_starttime":"16:00",
 					"availability_duration":90
 				},
 				{
-					"availability_date":"2014-03-14",
+					"availability_date":"2015-03-13",
 					"availability_dayofweek":"4",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"09:45",
 					"availability_duration":60
@@ -1627,7 +1627,7 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"16:30",
 					"availability_duration":150
@@ -1642,13 +1642,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"16:00",
 					"availability_duration":180
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"9:45",
 					"availability_duration":60
@@ -1682,13 +1682,13 @@
 				"numberWeek":10,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-05",
+					"availability_date":"2015-03-04",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-08",
+					"availability_date":"2015-03-07",
 					"availability_dayofweek":"5",
 					"availability_starttime":"12:15",
 					"availability_duration":60
@@ -1703,13 +1703,13 @@
 				"numberWeek":11,
 				"availabilities":[
 				{
-					"availability_date":"2014-03-12",
+					"availability_date":"2015-03-11",
 					"availability_dayofweek":"2",
 					"availability_starttime":"17:30",
 					"availability_duration":60
 				},
 				{
-					"availability_date":"2014-03-15",
+					"availability_date":"2015-03-14",
 					"availability_dayofweek":"5",
 					"availability_starttime":"14:30",
 					"availability_duration":60

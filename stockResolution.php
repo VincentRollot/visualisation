@@ -1,6 +1,7 @@
 <?php
 	//echo "Ouverture de stock_BDD.php<br/>";
 	//Connexion à la BDD
+	echo "Ouverture de stockResolution.php<br/>";
 		require 'connexion.php';
 	
 	
@@ -13,13 +14,7 @@
 		$parsed_json_resolution = json_decode($json_resolution);
 		
 		//On supprime les enregistrements de la table
-		mysqli_query($bdd, "DELETE FROM cours") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
-		mysqli_query($bdd, "DELETE FROM cours_intervenant") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 		
-		//On remet la BDD à 0
-		
-		$sql_un = "ALTER TABLE cours_intervenant AUTO_INCREMENT=0";
-		mysqli_query($bdd, $sql_un) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 		
 		unset ($sql_zero,$sql_un);
 		$cpt = 1 ;
@@ -46,6 +41,7 @@
 				$c_teacher_list = $j_planning->{'teacher_list'};
 				$c_host_list = $j_planning->{'host_list'};
 				
+				
 				$sql = "INSERT INTO cours (cours_ID, cours_salle_ID, cours_type, cours_date, cours_joursemaine, cours_heuredebut, cours_duree, cours_nb_prof, cours_nb_hote) 
 				VALUES(".$c_ID." ,".$c_class_id." ,".intval($c_intensity)." ,'".$c_date."' ,".intval($c_day)." , '".$c_start."' , ".$c_duration." , ".$c_nb_teacher[0]." , ".$c_nb_teacher[1].")";				
 				
@@ -56,6 +52,8 @@
 				
 				for( $i=0; $i<count($c_teacher_list) ; $i++)
 				{
+					
+					
 					$sql = "INSERT INTO cours_intervenant (id_cours, id_intervenant, is_teacher) 
 					VALUES(".$c_ID." ,".intval($c_teacher_list[$i]).", 1)";				
 				//	echo $sql;
@@ -64,6 +62,7 @@
 				
 				for( $i=0; $i<count($c_host_list) ; $i++)
 				{
+					
 					$sql = "INSERT INTO cours_intervenant (id_cours, id_intervenant, is_teacher) 
 					VALUES(".$c_ID." ,".intval($c_host_list[$i]).", 0)";				
 				//	echo $sql;

@@ -1,5 +1,5 @@
 <?php
-	//echo "Ouverture de stock_BDD.php<br/>";
+	echo "Ouverture de indicateur_mauvaise_formation.php<br/>";
 	//Connexion à la BDD
 		require 'connexion.php';
 	
@@ -36,7 +36,7 @@
 		
 		$sql = "SELECT * FROM cours_intervenant";
 		$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));		
-		echo $sql;
+		
 		//echo $insertion;
 		$cpt = 1 ;
 		
@@ -55,7 +55,7 @@
 				$intensite = mysqli_fetch_array($cours);
 				//echo $intensite[0];
 				
-				$sql = "SELECT * FROM intensite_intervenant WHERE int_ID=".$id_intervenant." AND class_level=".$intensite[0];
+				$sql = "SELECT * FROM intensite_intervenant WHERE id_intervenant=".$id_intervenant." AND class_level=".$intensite[0];
 				//$sql = "SELECT * FROM intensite_intervenant WHERE int_ID=".$id_intervenant." AND class_level=".$intensite;
 				$liste_intensite_intervenant = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 				$prof_autorise=FALSE;
@@ -79,10 +79,7 @@
 				//echo $prof_autorise." ici 	";
 				if($prof_autorise==FALSE)
 				{
-					echo "</br> ERREUR DETECTEE !!!! Un professeur n'est pas autorisé à donner cours !";
-					//echo " l'intensite est ".$jjjjjjjj;
-					//echo $line['int_prenom'];
-					echo " l'id cours_intervenant est ".$cpt." et l'identifiant du prof est ".$id_intervenant;
+					
 					
 					//Recupération du type d'erreur
 					$sql = "SELECT id_erreur FROM libelle_erreurs WHERE libelle='mauvaise_formation'";
@@ -101,7 +98,7 @@
 					
 					//Insertion de l'erreur dans la bdd
 					$sql = "INSERT INTO erreurs VALUES('',".$type_erreur[0]." , ".$id_cours.", '".$nom_prenom_intervenant[0]." ".$nom_prenom_intervenant[1]." ne peut donner un cours de type ".$mauvaise_intensite[0]." ')";				
-					echo "</br>".$sql;
+					
 					$ajout_erreur = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 				}
 				//mysqli_fetch_array($intensite_intervenant);
