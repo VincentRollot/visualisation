@@ -66,7 +66,7 @@
 						$sql = mysqli_query ($bdd, $query) or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 						$nom_salle_suivant = mysqli_fetch_row($sql);
 
-						$message = "Attention, ".$prenom_nom[0]." ".$prenom_nom[1]." donne cours en même temps à ".$nom_salle[0];
+						$message = "Attention ".$prenom_nom[0]." ".$prenom_nom[1]." donne cours en même temps à ".$nom_salle[0];
 
 						$sql = "INSERT INTO erreurs (id_type_erreur, id_cours_reference, msg_erreur) 
 								VALUES (5, ".$c_ID_suivant.", '".$message."')";
@@ -117,7 +117,7 @@
 						$sql = mysqli_query ($bdd, $query) or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 						$intensite_suivant = mysqli_fetch_row($sql);
 
-						$message = "Attention, ".$prenom_nom[0]." ".$prenom_nom[1]." enchaine un cours d''intensité ".$intensite[0]." à ".$nom_salle[0]." avec un cours d''intensité ".$intensite_suivant[0];
+						$message = "Attention ".$prenom_nom[0]." ".$prenom_nom[1]." enchaine un cours d''intensité ".$intensite[0]." à ".$nom_salle[0]." avec un cours d''intensité ".$intensite_suivant[0];
 						$sql = "INSERT INTO erreurs (id_type_erreur, id_cours_reference, msg_erreur) 
 								VALUES (6, ".$c_ID_suivant.", '".$message."')";
 						$insertion = mysqli_query($bdd, $sql) or die ('Erreur SQL!<br/>'.mysqli_error($bdd));

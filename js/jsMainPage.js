@@ -122,7 +122,8 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
 
             $scope.json = data;
             $scope.salle = data1;
-            displayPlanning();                          
+            displayPlanning();
+            indicateursSalle(data1);                          
           }).
           error(function(data1, status, headers, config) {
             console.log('ca marche pas');
@@ -221,7 +222,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   }
 
 
-  var indicateurs = function(cours){
+  var erreursCours = function(cours){
 
     $http.get('recuperer_liste_erreurs.php?cours='+cours). //    /GitHub/visualisation/content.php
       success(function(data, status, headers, config) {
@@ -232,6 +233,22 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         $("#indic").append(erreur);
         var button = $('<div class = "col-md-offset-4"><a id="bouton_detail" class="btn btn-default" href="detailCours.php?cours='+cours+'" role="button">Détails Cours</a></div>');
         $("#indic").append(button);
+      }).
+      error(function(data, status, headers, config) {
+        console.log('ca marche pas');
+    });
+  }
+
+  var indicateursSalle = function(salle_id){
+
+    $http.get('recuperer_nb_erreurs_salle.php?salle='+salle_id). //    /GitHub/visualisation/content.php
+      success(function(data, status, headers, config) {
+        $scope.erreurs = data;
+        console.log("erreurs : "+$scope.erreurs);
+        console.log(salle_id);
+        $("#indic").html('');
+        var erreur = $('<div id="erreur">Erreur : '+$scope.erreurs[0]+'  '+$scope.erreurs[1]+'</div>');
+        $("#indic").append(erreur);
       }).
       error(function(data, status, headers, config) {
         console.log('ca marche pas');
@@ -390,7 +407,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         element.attr('href', 'javascript:void(0);');
         element.click(function() {  
           var cours = event.title.substr(8,9);
-          indicateurs(cours);
+          erreursCours(cours);
         });
       },
     lang : 'fr',

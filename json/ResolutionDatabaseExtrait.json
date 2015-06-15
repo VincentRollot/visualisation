@@ -1,0 +1,84 @@
+[
+	{
+    "class_capacity": 20,
+    "class_date": "2015-05-28",
+    "class_dayofweek": 3,
+    "class_starttime": "18:30",
+    "class_duration": 60,
+    "class_level": 30,
+    "nb_teacher": [
+      1,
+      1
+    ],
+    "class_id": 217743,
+    "classroom_id": 357,
+    "teacher_list": [
+      "469"
+    ],
+    "host_list": [
+      "1665"
+    ]
+  },
+  {
+    "class_capacity": 20,
+    "class_date": "2015-05-28",
+    "class_dayofweek": 3,
+    "class_starttime": "19:30",
+    "class_duration": 60,
+    "class_level": 50,
+    "nb_teacher": [
+      1,
+      1
+    ],
+    "class_id": 217744,
+    "classroom_id": 357,
+    "teacher_list": [
+      "1303"
+    ],
+    "host_list": [
+      "1665"
+    ]
+  },
+  {
+    "class_capacity": 70,
+    "class_date": "2015-05-27",
+    "class_dayofweek": 2,
+    "class_starttime": "21:00",
+    "class_duration": 60,
+    "class_level": 30,
+    "nb_teacher": [
+      2,
+      2
+    ],
+    "class_id": 217986,
+    "classroom_id": 36,
+    "teacher_list": [
+      "996"
+    ],
+    "host_list": [
+      "1050",
+      "1234"
+    ]
+  },
+  {
+    "class_capacity": 50,
+    "class_date": "2015-05-31",
+    "class_dayofweek": 6,
+    "class_starttime": "14:45",
+    "class_duration": 60,
+    "class_level": 95,
+    "nb_teacher": [
+      1,
+      2
+    ],
+    "class_id": 216893,
+    "classroom_id": 88,
+    "teacher_list": [
+      "1747"
+    ],
+    "host_list": [
+      "1699"
+    ]
+  }
+	
+]

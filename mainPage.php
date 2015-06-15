@@ -68,7 +68,7 @@ if(empty($_SESSION['login']))
         <div class="row" id="list">
           <div ng-show="groupe1 == 'salle'">
             <div ng-repeat="rsalle in rsalles | filter:research | filter:firstLetterFilter | limitTo: limit" >
-              <div  ng-class="{research.salle_nom}">
+              <div  ng-class="research.salle_nom">
                 <a class="afficher" ng-click="submitSalle(rsalle.salle_nom)">{{rsalle.salle_nom}}</a>
               </div> 
              </div>  
@@ -77,7 +77,7 @@ if(empty($_SESSION['login']))
           <!-- liste intervenant -->
           <div ng-show="groupe1 == 'intervenant'">
             <div ng-repeat="rintervenant in rintervenants | filter:search | filter:firstLetterFilter | limitTo: limit" >
-              <div  ng-class="{search}">
+              <div  ng-class="search">
                 <a class="afficher" ng-click="submitIntervenant(rintervenant.int_ID_intervenant)" id="{{rintervenant.int_nom}}{{rintervenant.int_prenom}}">
                 {{rintervenant.int_nom}}  
                 {{rintervenant.int_prenom}}</a>

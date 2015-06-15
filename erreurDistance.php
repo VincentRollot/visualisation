@@ -92,7 +92,7 @@
 									$sql = mysqli_query ($bdd, $query) or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 									$nom_salle = mysqli_fetch_row($sql);
 
-									$message = "Attention, ".$prenom_nom[0]." ".$prenom_nom[1]." finit son cours à ".$nom_salle[0]." ".($temps_parcours/60)." minutes avant";
+									$message = "Attention ".$prenom_nom[0]." ".$prenom_nom[1]." finit son cours à ".$nom_salle[0]." ".($temps_parcours/60)." minutes avant";
 									
 									$sql = "INSERT INTO erreurs (id_type_erreur, id_cours_reference, msg_erreur) 
 											VALUES (4, ".$c_ID_suivant.", '".$message."')";
