@@ -1,7 +1,6 @@
 <?php
-	
 	require 'connexion.php';
-	
+
 	$id_cours = $_GET["cours"];
 	
 
@@ -12,18 +11,14 @@
 	$lst_erreurs = [];
 	while ($compteur = mysqli_fetch_row($erreurs)){
 
-		
-		echo utf8_decode($compteur[0])."|";
+		array_push($lst_erreurs, $compteur[0]);
 		
 	}
 	
+		
+	echo json_encode($lst_erreurs)."</br>";
 	
-			
-		
-		
-
-
+	
 	//Fermeture de la connexion à la BDD
 	mysqli_close($bdd);
-	
 ?>
