@@ -32,8 +32,13 @@
 				$r_lat = $j_region->{'region_gps_lat'};
 				$r_lon = $j_region->{'region_gps_lon'};
 				
-				$sql = "INSERT INTO region (region_ID, region_nom, region_pays, region_lat, region_lon) VALUES(".$r_ID." ,'".$r_nom."','".$r_pays."', ".$r_lat.", ".$r_lon.")";
-				$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+				if($r_nom != 'Ile de France'){
+					echo $r_nom;
+					echo '<br/>';
+					$sql = "INSERT INTO region (region_ID, region_nom, region_pays, region_lat, region_lon) VALUES(".$r_ID." ,'".$r_nom."','".$r_pays."', ".$r_lat.", ".$r_lon.")";
+					$insertion = mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+				}
+				
 			//Récupérer la liste des salles de cette région	
 				//On utilise l'API de la FFGS pour obtenir les détails d'une région
 				$json_region_detail = file_get_contents("http://ws.gymsuedoise.com/api/v1/region/".$r_ID."&apikey=t494hmF9m74J665J&country=FR");
