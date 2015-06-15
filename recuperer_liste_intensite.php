@@ -1,9 +1,8 @@
 <?php
 	require 'connexion.php';
 
-	//$id_salle = $_GET["cours"];
-	$id_salle = 1;
-	$debut_semaine = "2015-03-02";
+	$id_salle = $_GET["cours"];
+	$debut_semaine = $_GET["date"];;
 	
 	$lst_intensite = [];
 
