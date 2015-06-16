@@ -20,6 +20,11 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   $scope.groupe1 ='salle';
   $scope.rintervenants = [];
   $scope.dispo = null;
+  $scope.nb_dispo = null;
+  $scope.erreurs_region = null;
+  $scope.intensite = null;
+  $scope.erreurs_semaine = null;
+  $scope.erreurs_region_semaine = null;
 
 
   $scope.submitSalle = function(salle_ID){
@@ -135,7 +140,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
                   $scope.err[i] = $scope.err[i].replace('"','');
                   i = i + 1;
                 }
-                displayPlanning();   
+                displayPlanning();  
                 indicateursSalle(data1);  
               }).
               error(function(data2, status, headers, config) {
@@ -172,8 +177,8 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
                   i = i + 1;
                 }
 
-
                 displayPlanning(); 
+                indicateursIntervenant($scope.intervenant);
               }).
             error(function(data2, status, headers, config) {
               console.log('ca marche pas');
@@ -308,15 +313,80 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   }
 
   var indicateursSalle = function(salle_id){
+    var moment = $('#calendar').fullCalendar('getDate');
 
     $http.get('recuperer_nb_erreurs_salle.php?salle='+salle_id). //    /GitHub/visualisation/content.php
       success(function(data, status, headers, config) {
-        $scope.erreurs = data;
-        console.log("erreurs : "+$scope.erreurs);
-        console.log(salle_id);
-        $("#indic").html('');
-        var erreur = $('<div id="erreur">Erreur : '+$scope.erreurs[0]+'  '+$scope.erreurs[1]+'</div>');
-        $("#indic").append(erreur);
+        $http.get('recuperer_nb_erreurs_region.php?salle='+salle_id). //    /GitHub/visualisation/content.php
+          success(function(data1, status, headers, config) {
+            $http.get('recuperer_liste_intensite.php?salle='+salle_id+'&date='+moment.format()). //    /GitHub/visualisation/content.php
+              success(function(data2, status, headers, config) {
+                $http.get('recuperer_nb_erreurs_region_semaine.php?salle='+salle_id+'&date='+moment.format()). //    /GitHub/visualisation/content.php
+                  success(function(data3, status, headers, config) {
+                    $http.get('recuperer_nb_erreurs_salle_semaine.php?salle='+salle_id+'&date='+moment.format()). //    /GitHub/visualisation/content.php
+                      success(function(data4, status, headers, config) {
+
+                        $("#indic").html('');
+                        $scope.erreurs = data;
+                        $scope.erreurs_region = data1;
+                        $scope.intensite = data2;
+                        $scope.erreurs_semaine = data4;
+                        $scope.erreurs_region_semaine = data3;
+                        var count_intensite = $scope.intensite.length;
+                        var i = 0;
+
+                        var erreur = $('<div id="erreur"><strong>Erreur salle sur l\'année : </strong>'+$scope.erreurs[0]+' cours avec erreur sur '+$scope.erreurs[1]+' cours.</div>');
+                        $("#indic").append(erreur);
+                        var erreur_region = $('<div id="erreur"><strong>Erreur région sur l\'année : </strong>'+$scope.erreurs_region[0]+' cours avec erreur sur '+$scope.erreurs_region[1]+' cours.</div></br>');
+                        $("#indic").append(erreur_region);
+                        var erreur = $('<div id="erreur"><strong>Erreur salle sur la semaine : </strong>'+$scope.erreurs_semaine[0]+' cours avec erreur sur '+$scope.erreurs_semaine[1]+' cours.</div>');
+                        $("#indic").append(erreur);
+                        var erreur_region = $('<div id="erreur"><strong>Erreur région sur la semaine : </strong>'+$scope.erreurs_region_semaine[0]+' cours avec erreur sur '+$scope.erreurs_region_semaine[1]+' cours.</div></br>');
+                        $("#indic").append(erreur_region);
+
+                        var intensite = $('<div id="erreur"><strong>Intensités : </strong></br>');
+                        $("#indic").append(intensite);
+                        while(i < count_intensite){
+                          var intensite = $('<div>'+$scope.intensite[i]+' : '+$scope.intensite[i+1]+' cours.</div>');
+                          $("#indic").append(intensite);
+                          i = i + 2;
+                        }
+                        var intensite = $('</div>');
+                        $("#indic").append(intensite);
+                      }).
+                      error(function(data4, status, headers, config) {
+                      console.log('ca marche pas');
+                    });
+                  }).
+                  error(function(data3, status, headers, config) {
+                    console.log('ca marche pas');
+                });
+              }).
+                error(function(data2, status, headers, config) {
+                  console.log('ca marche pas');
+            });
+          }).
+          error(function(data1, status, headers, config) {
+            console.log('ca marche pas');
+        });
+      }).
+      error(function(data, status, headers, config) {
+        console.log('ca marche pas');
+    });
+  }
+
+  var indicateursIntervenant = function(int_ID_intervenant){
+    var moment = $('#calendar').fullCalendar('getDate');
+
+    $http.get('recuperer_nombre_cours_sur_disponibilite.php?id_intervenant='+int_ID_intervenant+'&date_debut_semaine='+moment.format()). //    /GitHub/visualisation/content.php
+      success(function(data, status, headers, config) {
+        $scope.nb_dispo = data;
+        if($scope.nb_dispo.length == 10){
+          $("#indic").html("<strong>Indicateur : </strong></br>L'intervenant ne donne pas de cours cette semaine.");
+        }
+        else{
+          $("#indic").html("<strong>Indicateur : </strong></br>L'intervenant donne "+$scope.nb_dispo[1]+" cours pour "+$scope.nb_dispo[4]+" disponibilités.");
+        }
       }).
       error(function(data, status, headers, config) {
         console.log('ca marche pas');
@@ -545,6 +615,14 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     //http://fullcalendar.io/docs/event_data/Event_Object/#color-options  Pour la couleur individuelle des éléments
   });
     
+    $(".fc-button-group").on('click', function (event) {
+      if($scope.typeplanning == 0){
+        indicateursSalle($scope.salle);
+      }
+      else if($scope.typeplanning == 1){
+        indicateursIntervenant($scope.intervenant);
+      }
+    });
   }
 
 

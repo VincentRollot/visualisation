@@ -78,6 +78,18 @@ if(empty($_SESSION['login']))
     $sql_hote = "SELECT id_intervenant FROM cours_intervenant WHERE id_cours = '".$cours."' AND is_teacher = '0'";
     $hote_req = mysqli_query($bdd, $sql_hote) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
     $count_hote = mysqli_num_rows($hote_req);
+	
+	$i = 0;
+    while($i < $count_hote){
+      $hote_db = mysqli_fetch_assoc($hote_req);
+      $hote_nb[$i] = $hote_db['id_intervenant'];
+      $sql_hote_id = "SELECT int_nom, int_prenom FROM intervenant WHERE int_ID_intervenant = '".$hote_nb[$i]."'";
+      $hote_id_req = mysqli_query($bdd, $sql_hote_id) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+      $hote_id_db = mysqli_fetch_assoc($hote_id_req);
+      $hote[$i] = $hote_id_db['int_nom']." ".$hote_id_db['int_prenom'];
+      $i = $i + 1;
+    }
+	
 
     $sql_animateur = "SELECT id_intervenant FROM cours_intervenant WHERE id_cours = '".$cours."' AND is_teacher = '1'";
     $animateur_req = mysqli_query($bdd, $sql_animateur) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
@@ -93,6 +105,7 @@ if(empty($_SESSION['login']))
       $animateur[$i] = $animateur_id_db['int_nom']." ".$animateur_id_db['int_prenom'];
       $i = $i + 1;
     }
+	
     
     $nb_animateur = $debut_db['cours_nb_prof'];
     $nb_animateur_possible = $debut_db['cours_nb_prof'] - $count;
@@ -176,13 +189,26 @@ if(empty($_SESSION['login']))
               }
               $i = $i + 1;
             } ?>
-
+			
+			</br>Hote : 
+            <?php   
+            $i = 0;
+            while($i < $count_hote){
+              ?>
+              <a href="mainPage.php?intervenant=<?php print $hote_nb[$i]; ?>"><?php echo $hote[$i]; ?></a>
+              <?php
+              if($i < ($count_hote - 1)){
+                echo ", ";
+              }
+              $i = $i + 1;
+            } ?>
+			
             <div class="sous-titreDetail">Rappel indicateur :</div>
             <div>
                 <p>Nombre d'animateur : <?php echo $nb_animateur; ?></p>
-                <p>Nombre d'animateur encore possible : <?php echo $nb_animateur_possible; ?></p>
+                <p>Nombre d'animateur encore nécessaire : <?php echo $nb_animateur_possible; ?></p>
                 <p>Nombre d'hote : <?php echo $nb_hote; ?></p>
-                <p>Nombre d'hote encore possible : <?php echo $nb_hote_possible; ?></p>
+                <p>Nombre d'hote encore nécessaire : <?php echo $nb_hote_possible; ?></p>
                 <p>Formation de l’animateur correspond à l’intensité : <?php echo $formation; ?></p>
             </div> 
           </div> 

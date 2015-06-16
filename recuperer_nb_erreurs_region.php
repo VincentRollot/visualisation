@@ -1,7 +1,7 @@
 <?php
 	require 'connexion.php';
 
-	$id_salle = $_GET["cours"];
+	$id_salle = $_GET["salle"];
 	
 	
 	$nb_erreurs = 0;
