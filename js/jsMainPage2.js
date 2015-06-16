@@ -12,6 +12,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   $scope.infos = null;
   $scope.nb = null;
   $scope.nom = null;
+  $scope.erreurs = null;
   $scope.err = [];
   $scope.typeplanning = null;
   $scope.mode = 0;
@@ -42,17 +43,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   document.getElementById("bRefresh").onclick = function() {refresh()};
 
   function refresh() {
-    $("#body").hide();
-    //alert("Lancement du chargement, veuillez attendre..."); 
-    $http.get('initStockBDD.php')
-      .success(function(status){
-        $("#body").show();
-        location.reload();
-        alert('Mise à jour réussie');        
-      })
-      .error(function(status){        
-        alert('Erreur de chargement : '+status);        
-      })
+      alert("(en cours de développement)");
   }
 
 
@@ -131,10 +122,6 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       success(function(data, status, headers, config) {
         $http.get('recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
           success(function(data1, status, headers, config) {
-            $scope.json = data;
-            $scope.salle = data1;
-            displayPlanning();
-            indicateursSalle(data1);        
             $http.get('recuperer_erreurs.php'). //    /GitHub/visualisation/content.php
               success(function(data2, status, headers, config) {
                 $scope.json = data;
@@ -149,8 +136,8 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
                   $scope.err[i] = $scope.err[i].replace('"','');
                   i = i + 1;
                 }
-                displayPlanning();   
-                indicateursSalle(data1);  
+                displayPlanning();
+                indicateursSalle(data1);   
               }).
               error(function(data2, status, headers, config) {
                 console.log('ca marche pas');
@@ -279,10 +266,9 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   }
 
 
-
   var erreursCours = function(cours){
 
-  $http.get('recuperer_liste_erreurs.php?cours='+cours). //    /GitHub/visualisation/content.php
+    $http.get('recuperer_liste_erreurs.php?cours='+cours). //    /GitHub/visualisation/content.php
       success(function(data, status, headers, config) {
         if(data.length == 7){
           $("#indic").html("<strong>Erreur(s) : </strong>Pas d'erreur.");
@@ -320,23 +306,6 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         console.log('ca marche pas');
     });
   }
-
-  var indicateursSalle = function(salle_id){
-
-    $http.get('recuperer_nb_erreurs_salle.php?salle='+salle_id). //    /GitHub/visualisation/content.php
-      success(function(data, status, headers, config) {
-        $scope.erreurs = data;
-        console.log("erreurs : "+$scope.erreurs);
-        console.log(salle_id);
-        $("#indic").html('');
-        var erreur = $('<div id="erreur">Erreur : '+$scope.erreurs[0]+'  '+$scope.erreurs[1]+'</div>');
-        $("#indic").append(erreur);
-      }).
-      error(function(data, status, headers, config) {
-        console.log('ca marche pas');
-    });
-  }
-
 
   var displayPlanning = function(){
 
@@ -394,6 +363,8 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
               var flag = true;
 
               while((count_err < nb_err) && (flag == true)){
+                console.log($scope.err[count_err]);
+                console.log($scope.json[count].class_id);
                 if($scope.err[count_err] == $scope.json[count].class_id){
                   flag = false;
                 }
@@ -534,8 +505,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         element.attr('href', 'javascript:void(0);');
         element.click(function() {  
           var cours = event.title.substr(8,9);
-          erreursCours(cours);
-
+          indicateurs(cours);
         });
       },
     lang : 'fr',
