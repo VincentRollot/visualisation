@@ -1,7 +1,8 @@
 <?php
 	require 'connexion.php';
 
-	$intervenant_selected = $_GET['intervenant'];
+	//$intervenant_selected = $_GET['intervenant'];
+	$intervenant_selected = 18;
 	//$date_semaine = "2015-03-10";
 	//echo "</br>".intval(date("W", strtotime($date_semaine)))."</br>";
 	//echo "</br>".$intervenant_selected."</br>";
@@ -26,7 +27,7 @@
 		$dispo_salle = mysqli_query($bdd, $sql2) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 		$compte_disponibilite=mysqli_num_rows($info_cours_intervenant);
 		$cpt=0;
-		array_push($disponibilite, "'date'"."=>".$infos_cours_intervenant['disponibilite_date'].", 'heuredebut'=>".$infos_cours_intervenant['disponibilite_heuredebut'].", 'duree'=>".$infos_cours_intervenant['disponibilite_duree'].", 'salle' =>[");
+		array_push($disponibilite, $infos_cours_intervenant['disponibilite_date'], $infos_cours_intervenant['disponibilite_heuredebut'], $infos_cours_intervenant['disponibilite_duree']);
 
 		$salle_actuelle=1;
 		//On remplit un tableau avec le nombre de cours qu il fait par semaines
@@ -47,10 +48,10 @@
 				
 				if ($compte_salle == $salle_actuelle) {
 					// last row
-					array_push($disponibilite, $infos_salles['salle_nom']."]");
+					array_push($disponibilite, $infos_salles['salle_nom']);
 				} else {
 					// not last row
-					array_push($disponibilite, $infos_salles['salle_nom'].",");
+					array_push($disponibilite, $infos_salles['salle_nom']);
 				}
 				$salle_actuelle=$salle_actuelle+1;
 				
@@ -74,7 +75,7 @@
 	}*/
 	
 	//	print_r ($total_disponibilite);
-	 echo json_encode($total_disponibilite, JSON_PRETTY_PRINT) 
+	 echo json_encode($total_disponibilite, JSON_PRETTY_PRINT);
 	
 	
 	/*$book=array(
@@ -112,20 +113,6 @@ echo 'aaaa';
     "edition" => 6
 );*/
 
-?>
-
-<script type="text/javascript">
-//var book = <?php echo json_encode($total_disponibilite, JSON_PRETTY_PRINT) ?>;
-/* var book = {
-    "title": "JavaScript: The Definitive Guide",
-    "author": "David Flanagan",
-    "edition": 6
-}; */
-//alert('d\u0022 ');
-//alert(book[0].date);
-</script>
-
-	<?php
 	//Fermeture de la connexion à la BDD
 	mysqli_close($bdd);
 ?>
