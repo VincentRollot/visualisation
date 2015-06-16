@@ -8,6 +8,10 @@
 	mysqli_query($bdd, "DELETE FROM salle") or die ("Erreur SQL ! </br>".mysqli_error($bdd));
 		
 	//On remet la BDD à 0
+	$sql_zero = "ALTER TABLE region AUTO_INCREMENT=0";
+	mysqli_query($bdd, $sql_zero) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
+	$sql_zero = "ALTER TABLE region_salle AUTO_INCREMENT=0";
+	mysqli_query($bdd, $sql_zero) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 	$sql_zero = "ALTER TABLE salle AUTO_INCREMENT=0";
 	mysqli_query($bdd, $sql_zero) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 
@@ -53,6 +57,7 @@
 	require 'indicateur_taux_erreur.php';
 
 
-
+	$sql = "INSERT INTO date_maj (date_maj) VALUES (NOW())";
+	mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 	
 ?>

@@ -25,6 +25,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   $scope.intensite = null;
   $scope.erreurs_semaine = null;
   $scope.erreurs_region_semaine = null;
+  $scope.dateMaj = null;
 
 
   $scope.submitSalle = function(salle_ID){
@@ -47,8 +48,35 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   document.getElementById("bRefresh").onclick = function() {refresh()};
 
   function refresh() {
-      alert("(en cours de développement)");
+    $("#body").hide();
+    //window.open("../visualisation/essai.php","_self");
+    //alert("Lancement du chargement, veuillez attendre..."); 
+    $http.get('initStockBDD.php')
+      .success(function(status){
+        $("#body").show();
+        //window.open("../visualisation/mainPage.php","_self");
+        location.reload();
+        alert('Mise à jour réussie');  
+        getDateMaj();      
+      })
+      .error(function(status){        
+        alert('Erreur de chargement : '+status);        
+      })
   }
+
+  function getDateMaj(){
+    $http.get('recuperer_date_maj.php')
+      .success(function(data, status){
+        $scope.dateMaj = data;
+        $(dateMaj).html("Mise à jour : "+$scope.dateMaj);
+        
+      })
+      .error(function(data, status){
+        alert('Erreur');        
+      })
+  }
+
+  getDateMaj();
 
 
  function getSalles(){
@@ -126,6 +154,10 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       success(function(data, status, headers, config) {
         $http.get('recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
           success(function(data1, status, headers, config) {
+            $scope.json = data;
+            $scope.salle = data1;
+            displayPlanning();
+            indicateursSalle(data1);        
             $http.get('recuperer_erreurs.php'). //    /GitHub/visualisation/content.php
               success(function(data2, status, headers, config) {
                 $scope.json = data;

@@ -10,7 +10,7 @@ if(empty($_SESSION['login']))
 ?>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="GymSuedoise">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="details">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -215,20 +215,7 @@ if(empty($_SESSION['login']))
         </div>
       </div>
     </div>
-    <footer>
-      <div class="col-md-12" id="infos">
-            <div class="col-md-2 no-padding">MENTIONS LEGALES CGU</div>
-            <div class="col-md-2 no-padding">Modification : JJ/MM/AAAA</div>
-            <div class="col-md-3 no-padding">Copyright 1993-2015 La Gym Suédoise</div>
-            <div class="col-md-2 no-padding">Mise à jour : JJ/MM/AAAA</div>
-            <div class="col-md-1 no-padding" id="divLegende" ng-click="showModal();">
-              <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Légende
-            </div>
-            <div class="col-md-1 no-padding">
-                <a class ='logout' href='logout.php'>Se déconnecter</a>
-            </div>
-            <div class="col-md-1 no-padding"><img id="logo" src="images/logo.png"></div>
-        </div>
-    </footer>  
+    <ng-include src="'legende.php'"></ng-include>
+    <ng-include src="'footer.php'"></ng-include> 
   </body>
 </html>
