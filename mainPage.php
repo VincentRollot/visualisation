@@ -31,6 +31,7 @@ if(empty($_SESSION['login']))
 </head>
 
   <body ng-controller="mainPageController"  ng-controller="SalleCtrl">
+    <div id="body">
       <ng-include src="'nav.php'"></ng-include> 
       <div  class="col-md-7">        
         <div class="row" id="searcharea">
@@ -92,6 +93,7 @@ if(empty($_SESSION['login']))
     
     <ng-include src="'legende.php'"></ng-include>
     <ng-include src="'footer.php'"></ng-include> 
+    </div>
   </body>
 
 

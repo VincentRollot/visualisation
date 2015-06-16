@@ -42,7 +42,17 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   document.getElementById("bRefresh").onclick = function() {refresh()};
 
   function refresh() {
-      alert("(en cours de développement)");
+    $("#body").hide();
+    //alert("Lancement du chargement, veuillez attendre..."); 
+    $http.get('initStockBDD.php')
+      .success(function(status){
+        $("#body").show();
+        location.reload();
+        alert('Mise à jour réussie');        
+      })
+      .error(function(status){        
+        alert('Erreur de chargement : '+status);        
+      })
   }
 
 
@@ -121,13 +131,10 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       success(function(data, status, headers, config) {
         $http.get('recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
           success(function(data1, status, headers, config) {
-<<<<<<< HEAD
-
             $scope.json = data;
             $scope.salle = data1;
             displayPlanning();
             indicateursSalle(data1);                          
-=======
             $http.get('recuperer_erreurs.php'). //    /GitHub/visualisation/content.php
               success(function(data2, status, headers, config) {
                 $scope.json = data;
@@ -147,7 +154,6 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
               error(function(data2, status, headers, config) {
                 console.log('ca marche pas');
             });                       
->>>>>>> couleurs ok, erreurs ok
           }).
           error(function(data1, status, headers, config) {
             console.log('ca marche pas');
@@ -324,6 +330,11 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         $("#indic").html('');
         var erreur = $('<div id="erreur">Erreur : '+$scope.erreurs[0]+'  '+$scope.erreurs[1]+'</div>');
         $("#indic").append(erreur);
+         }).
+      error(function(data, status, headers, config) {
+        console.log('ca marche pas');
+    });
+  }
 
 
   var displayPlanning = function(){
