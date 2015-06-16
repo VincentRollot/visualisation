@@ -20,6 +20,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   $scope.groupe1 ='salle';
   $scope.rintervenants = [];
   $scope.dispo = null;
+  $scope.dateMaj = null;
 
 
   $scope.submitSalle = function(salle_ID){
@@ -43,17 +44,34 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
 
   function refresh() {
     $("#body").hide();
+    //window.open("../visualisation/essai.php","_self");
     //alert("Lancement du chargement, veuillez attendre..."); 
     $http.get('initStockBDD.php')
       .success(function(status){
         $("#body").show();
+        //window.open("../visualisation/mainPage.php","_self");
         location.reload();
-        alert('Mise à jour réussie');        
+        alert('Mise à jour réussie');  
+        getDateMaj();      
       })
       .error(function(status){        
         alert('Erreur de chargement : '+status);        
       })
   }
+
+  function getDateMaj(){
+    $http.get('recuperer_date_maj.php')
+      .success(function(data, status){
+        $scope.dateMaj = data;
+        $(dateMaj).html("Mise à jour : "+$scope.dateMaj);
+        
+      })
+      .error(function(data, status){
+        alert('Erreur');        
+      })
+  }
+
+  getDateMaj();
 
 
  function getSalles(){

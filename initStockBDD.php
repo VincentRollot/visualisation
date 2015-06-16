@@ -57,6 +57,7 @@
 	require 'indicateur_taux_erreur.php';
 
 
-
+	$sql = "INSERT INTO date_maj (date_maj) VALUES (NOW())";
+	mysqli_query($bdd, $sql) or die('Erreur SQL!<br/>'.mysqli_error($bdd));
 	
 ?>
