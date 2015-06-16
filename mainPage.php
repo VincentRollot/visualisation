@@ -35,7 +35,7 @@ if(empty($_SESSION['login']))
       <div  class="col-md-7">        
         <div class="row" id="searcharea">
           <div  class="col-md-3">                       
-            <label><input id="intervenant" type="radio" name="groupe1" ng-model="groupe1"   value="intervenant" /> Intervenant </label>
+            <label><input id="intervenant" type="radio" name="groupe1" ng-model="groupe1"   value="intervenant"/> Intervenant </label>
             <br>
             <label><input id="salle" type="radio" name="groupe1" ng-model="groupe1"  value="salle" /> Salle </label>
           </div>     
@@ -86,7 +86,6 @@ if(empty($_SESSION['login']))
           </div>
         </div>
         <div class="row" id="indic">
-          <label>indic</label>
         </div>
       </div>
     </div>

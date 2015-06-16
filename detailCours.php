@@ -75,7 +75,9 @@ if(empty($_SESSION['login']))
 
     $intensite = $intensite_db['description'];
 
-
+    $sql_hote = "SELECT id_intervenant FROM cours_intervenant WHERE id_cours = '".$cours."' AND is_teacher = '0'";
+    $hote_req = mysqli_query($bdd, $sql_hote) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+    $count_hote = mysqli_num_rows($hote_req);
 
     $sql_animateur = "SELECT id_intervenant FROM cours_intervenant WHERE id_cours = '".$cours."' AND is_teacher = '1'";
     $animateur_req = mysqli_query($bdd, $sql_animateur) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
@@ -92,12 +94,54 @@ if(empty($_SESSION['login']))
       $i = $i + 1;
     }
     
-
     $nb_animateur = $debut_db['cours_nb_prof'];
-    $nb_animateur_possible = "animateur possible";
+    $nb_animateur_possible = $debut_db['cours_nb_prof'] - $count;
     $nb_hote = $debut_db['cours_nb_hote'];
-    $nb_hote_possible = "hote possible";
-    $formation = "oui";
+    $nb_hote_possible = $debut_db['cours_nb_hote'] - $count_hote;
+
+
+
+
+    $i = 0;
+    $flag = 'oui';
+    while($i < $count){
+      $sql_intensite_nb = "SELECT class_level FROM intensite_intervenant WHERE id_intervenant = '".$animateur_nb[$i]."'";
+      $intensite_nb_req = mysqli_query($bdd, $sql_intensite_nb) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+      $count_intensite = mysqli_num_rows($intensite_nb_req);
+
+      $j=0;
+      while($j < $intensite_nb){
+        $intensite_nb_db = mysqli_fetch_assoc($intensite_nb_req);
+        if($intensite_nb == $intensite_nb_db['class_level']){
+          $flag = 'oui';
+          $j = $intensite_nb;
+        }
+        else{
+          $sql_animateur_id = "SELECT int_nom, int_prenom FROM intervenant WHERE int_ID_intervenant = '".$animateur_nb[$i]."'";
+          $animateur_id_req = mysqli_query($bdd, $sql_animateur_id) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+          $animateur_id_db = mysqli_fetch_assoc($animateur_id_req);
+          $animateur[$i] = $animateur_id_db['int_nom']." ".$animateur_id_db['int_prenom'];
+          $flag = $animateur[$i]." ne peut pas donner un cours d'intensité ".$intensite;
+        }
+        $j = $j + 1;
+      }
+      $i = $i + 1;
+    }
+
+    $formation = $flag;
+    /*while($i < $count){
+      $intensite_nb_db = mysqli_fetch_assoc($intensite_nb_req);
+
+      $sql_intensite = "SELECT description FROM intensite WHERE class_level = '".$intensite_nb_db['class_level']."'";
+      $intensite_req = mysqli_query($bdd, $sql_intensite) or die('Erreur requête SQL!<br/>'.mysqli_error($bdd));
+      $intensite_db = mysqli_fetch_assoc($intensite_req);
+
+      $intensite[$i] = $intensite_db['description'];
+
+      $i = $i+1;
+    }*/
+
+
 
     ?>
     <div class = "container">

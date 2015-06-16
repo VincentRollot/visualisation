@@ -12,12 +12,14 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   $scope.infos = null;
   $scope.nb = null;
   $scope.nom = null;
-  $scope.erreurs = null;
+  $scope.err = [];
   $scope.typeplanning = null;
   $scope.mode = 0;
   $scope.rsalles=[];
   $scope.limit = 7;
+  $scope.groupe1 ='salle';
   $scope.rintervenants = [];
+  $scope.dispo = null;
 
 
   $scope.submitSalle = function(salle_ID){
@@ -119,11 +121,33 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
       success(function(data, status, headers, config) {
         $http.get('recuperer_id_salle.php?salle=' + salle_selected). //  /GitHub/visualisation/recuperer_id_salle.php?salle=
           success(function(data1, status, headers, config) {
+<<<<<<< HEAD
 
             $scope.json = data;
             $scope.salle = data1;
             displayPlanning();
             indicateursSalle(data1);                          
+=======
+            $http.get('recuperer_erreurs.php'). //    /GitHub/visualisation/content.php
+              success(function(data2, status, headers, config) {
+                $scope.json = data;
+                $scope.salle = data1;
+                $scope.err = data2.split(',');
+                var count_err = $scope.err.length;
+                $scope.err[0] = $scope.err[0].replace('[','');
+                $scope.err[count_err - 1] = $scope.err[count_err - 1].replace(']','');
+                var i = 0;
+                while(i<count_err){
+                  $scope.err[i] = $scope.err[i].replace('"','');
+                  $scope.err[i] = $scope.err[i].replace('"','');
+                  i = i + 1;
+                }
+                displayPlanning();   
+              }).
+              error(function(data2, status, headers, config) {
+                console.log('ca marche pas');
+            });                       
+>>>>>>> couleurs ok, erreurs ok
           }).
           error(function(data1, status, headers, config) {
             console.log('ca marche pas');
@@ -137,8 +161,34 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   var chargerDonneesIntervenant = function(){
     $http.get('content.php'). //    /GitHub/visualisation/content.php
       success(function(data, status, headers, config) {
-        $scope.json = data;
-        displayPlanning(); 
+        $http.get('recuperer_erreurs.php'). //    /GitHub/visualisation/content.php
+          success(function(data1, status, headers, config) {
+            $http.get('recuperer_disponibilites_enseignant.php?intervenant='+$scope.intervenant). //    /GitHub/visualisation/content.php
+              success(function(data2, status, headers, config) {
+                $scope.json = data;
+                $scope.err = data1.split(',');
+
+                var count_err = $scope.err.length;
+                $scope.err[0] = $scope.err[0].replace('[','');
+                $scope.err[count_err - 1] = $scope.err[count_err - 1].replace(']','');
+
+                var i = 0;
+                while(i<count_err){
+                  $scope.err[i] = $scope.err[i].replace('"','');
+                  $scope.err[i] = $scope.err[i].replace('"','');
+                  i = i + 1;
+                }
+
+
+                displayPlanning(); 
+              }).
+            error(function(data2, status, headers, config) {
+              console.log('ca marche pas');
+          });
+        }).
+        error(function(data1, status, headers, config) {
+            console.log('ca marche pas');
+        });
       }).
       error(function(data, status, headers, config) {
         console.log('ca marche pas');
@@ -222,17 +272,42 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   }
 
 
+
   var erreursCours = function(cours){
 
-    $http.get('recuperer_liste_erreurs.php?cours='+cours). //    /GitHub/visualisation/content.php
+  $http.get('recuperer_liste_erreurs.php?cours='+cours). //    /GitHub/visualisation/content.php
       success(function(data, status, headers, config) {
-        $scope.erreurs = data;
-        console.log($scope.erreurs);
-        $("#indic").html('');
-        var erreur = $('<div id="erreur">Erreur : '+$scope.erreurs+'</div>');
-        $("#indic").append(erreur);
-        var button = $('<div class = "col-md-offset-4"><a id="bouton_detail" class="btn btn-default" href="detailCours.php?cours='+cours+'" role="button">Détails Cours</a></div>');
-        $("#indic").append(button);
+        if(data.length == 7){
+          $("#indic").html("<strong>Erreur(s) : </strong>Pas d'erreur.");
+          var button = $('<div class = "col-md-offset-4"><a id="bouton_detail" class="btn btn-default" href="detailCours.php?cours='+cours+'" role="button">Détails Cours</a></div>');
+          $("#indic").append(button);
+        }
+
+        else{
+          $scope.erreurs = data.split(',');
+          var count_erreurs = $scope.erreurs.length;
+          $scope.erreurs[0] = $scope.erreurs[0].replace('[','');
+          $scope.erreurs[count_erreurs - 1] = $scope.erreurs[count_erreurs - 1].replace(']','');
+          var i = 0;
+          while(i<count_erreurs){
+            $scope.erreurs[i] = $scope.erreurs[i].replace('"','');
+            $scope.erreurs[i] = $scope.erreurs[i].replace('"','');
+            i = i + 1;
+          }
+
+          $("#indic").html('<strong>Erreur(s) : </strong><ul>');
+
+          i = 0;
+          while(i < count_erreurs){
+            var erreur = $('<li>'+$scope.erreurs[i]+'</li>');
+            $("#indic").append(erreur);
+            i = i + 1;
+          }
+          var liste = $('</ul>');
+          $("#indic").append(liste);
+          var button = $('<div class = "col-md-offset-4"><a id="bouton_detail" class="btn btn-default" href="detailCours.php?cours='+cours+'" role="button">Détails Cours</a></div>');
+          $("#indic").append(button);
+        }
       }).
       error(function(data, status, headers, config) {
         console.log('ca marche pas');
@@ -249,11 +324,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         $("#indic").html('');
         var erreur = $('<div id="erreur">Erreur : '+$scope.erreurs[0]+'  '+$scope.erreurs[1]+'</div>');
         $("#indic").append(erreur);
-      }).
-      error(function(data, status, headers, config) {
-        console.log('ca marche pas');
-    });
-  }
+
 
   var displayPlanning = function(){
 
@@ -264,6 +335,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
   var start_time  = new Array();
   var end_time  = new Array();
   var color = new Array();
+  var text_color = new Array();
   var json = new Array();
   var tmp = new Array();
 
@@ -304,6 +376,29 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
               }
 
               end_time.push($scope.json[count].class_date+'T'+hour_end+':'+minute_end+':00');
+
+              var nb_err = $scope.err.length;
+              var count_err = 0;
+              var flag = true;
+
+              while((count_err < nb_err) && (flag == true)){
+                console.log($scope.err[count_err]);
+                console.log($scope.json[count].class_id);
+                if($scope.err[count_err] == $scope.json[count].class_id){
+                  flag = false;
+                }
+                count_err = count_err + 2;
+              }
+
+              if (flag == false) {
+                color.push("rgb(207,16,26)");
+                text_color.push("rgb(251,210,20)");
+              }
+
+              else if(flag == true){
+                color.push("rgb(251,210,20)");
+                text_color.push("rgb(17,81,160)");
+              }
             }
           }
 
@@ -338,6 +433,26 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
                 }
 
                 end_time.push($scope.json[count].class_date+'T'+hour_end+':'+minute_end+':00');
+                var nb_err = $scope.err.length;
+                var count_err = 0;
+                var flag = true;
+
+                while((count_err < nb_err) && (flag == true)){
+                  if($scope.err[count_err] == $scope.json[count].class_id){
+                    flag = false;
+                  }
+                  count_err = count_err + 2;
+                }
+
+                if (flag == false) {
+                  color.push("rgb(207,16,26)");
+                  text_color.push("rgb(251,210,20)");
+                }
+
+                else if(flag == true){
+                  color.push("rgb(251,210,20)");
+                  text_color.push("rgb(17,81,160)");
+                }
               }
               count_inter = count_inter + 1;
             }
@@ -381,11 +496,13 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
 
       var i = 0;
       var obj = {};
-      tmp = ['title', 'start', 'end'];
+      tmp = ['title', 'start', 'end', 'color', 'textColor'];
 
       obj[tmp[0]] = id_class[count_json];
       obj[tmp[1]] = start_time[count_json];
       obj[tmp[2]] = end_time[count_json];
+      obj[tmp[3]] = color[count_json];
+      obj[tmp[4]] = text_color[count_json];
 
       json.push(obj);
       count_json = count_json + 1;
@@ -408,6 +525,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
         element.click(function() {  
           var cours = event.title.substr(8,9);
           erreursCours(cours);
+
         });
       },
     lang : 'fr',
@@ -426,6 +544,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
     eventDurationEditable : false,
     events: planning,
     eventBackgroundColor : "rgb(251,210,20)",
+    eventBorderColor : "rgb(17,81,160)",
     eventTextColor : "rgb(17,81,160)"
     //http://fullcalendar.io/docs/event_data/Event_Object/#color-options  Pour la couleur individuelle des éléments
   });
@@ -444,7 +563,7 @@ var GymSuedoise = angular.module('GymSuedoise', []).controller('mainPageControll
           $scope.typeplanning = 1;
           $scope.intervenant = sParameterName[1];
           chargerDonneesIntervenant();
-          afficherDetailsIntervenant();
+          afficherDetailsIntervenant(sParameterName[1]);
         }
     }
 });
